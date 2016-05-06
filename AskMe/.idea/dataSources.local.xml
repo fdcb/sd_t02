@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="AskMeDB - @localhost" uuid="6de145fb-402b-4bf0-a768-247116796aba">
+    <data-source name="Sqlite (Xerial) - AskMe.db" uuid="bbefd4fc-0438-4b3f-9fd9-d4d09d4c41cb">
       <secret-storage>master_key</secret-storage>
+      <auth-required>false</auth-required>
     </data-source>
   </component>
 </project>
