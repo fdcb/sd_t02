@@ -8,6 +8,8 @@
         <class>askme.SolutionEntity</class>
         <class>askme.SolutionStateEntity</class>
         <class>askme.UserEntity</class>
+        <class>askme.ClassesEntity</class>
+        <class>askme.UserEntity</class>
         <properties>
             <property name="eclipselink.jdbc.url" value="jdbc:sqlite:C:/T02SD/AskMe.db"/>
             <property name="eclipselink.jdbc.driver" value="org.sqlite.JDBC"/>

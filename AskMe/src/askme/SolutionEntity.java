@@ -12,6 +12,8 @@ public class SolutionEntity {
     private Integer solutionId;
     private int exerciseId;
     private int classId;
+    private String username;
+    private int idState;
     private String description;
 
     @Id
@@ -45,6 +47,26 @@ public class SolutionEntity {
     }
 
     @Basic
+    @Column(name = "username")
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Basic
+    @Column(name = "id_state")
+    public int getIdState() {
+        return idState;
+    }
+
+    public void setIdState(int idState) {
+        this.idState = idState;
+    }
+
+    @Basic
     @Column(name = "description")
     public String getDescription() {
         return description;
@@ -63,7 +85,9 @@ public class SolutionEntity {
 
         if (exerciseId != that.exerciseId) return false;
         if (classId != that.classId) return false;
+        if (idState != that.idState) return false;
         if (solutionId != null ? !solutionId.equals(that.solutionId) : that.solutionId != null) return false;
+        if (username != null ? !username.equals(that.username) : that.username != null) return false;
         if (description != null ? !description.equals(that.description) : that.description != null) return false;
 
         return true;
@@ -74,6 +98,8 @@ public class SolutionEntity {
         int result = solutionId != null ? solutionId.hashCode() : 0;
         result = 31 * result + exerciseId;
         result = 31 * result + classId;
+        result = 31 * result + (username != null ? username.hashCode() : 0);
+        result = 31 * result + idState;
         result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
     }
