@@ -5,6 +5,10 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Class", schema = "", catalog = "")
+@NamedQueries({
+        @NamedQuery(name = "Class.findAll", query = "SELECT c FROM Class c"),
+        @NamedQuery(name = "Class.findByClassId", query = "SELECT c FROM Class c WHERE c.classId = :classId"),
+        @NamedQuery(name = "Class.findByName", query = "SELECT c FROM Class c WHERE c.name = :name")})
 public class ClassesEntity {
     private Integer classId;
     private String name;

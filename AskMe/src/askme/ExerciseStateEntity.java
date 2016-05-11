@@ -4,6 +4,10 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "ExerciseState", schema = "", catalog = "")
+@NamedQueries({
+        @NamedQuery(name = "ExerciseState.findAll", query = "SELECT e FROM ExerciseState e"),
+        @NamedQuery(name = "ExerciseState.findByStateId", query = "SELECT e FROM ExerciseState e WHERE e.stateId = :stateId"),
+        @NamedQuery(name = "ExerciseState.findByState", query = "SELECT e FROM ExerciseState e WHERE e.state = :state")})
 public class ExerciseStateEntity {
     private Integer stateId;
     private String state;
