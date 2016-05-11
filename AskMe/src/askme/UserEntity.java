@@ -5,6 +5,10 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Users", schema = "", catalog = "")
+@NamedQueries({
+        @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u"),
+        @NamedQuery(name = "Users.findByUsername", query = "SELECT u FROM Users u WHERE u.username = :username"),
+        @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password")})
 public class UserEntity {
     private String username;
     private String password;

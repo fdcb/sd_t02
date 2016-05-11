@@ -6,6 +6,11 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Exercise", schema = "", catalog = "")
 @IdClass(ExerciseEntityPK.class)
+@NamedQueries({
+        @NamedQuery(name = "Exercise.findAll", query = "SELECT e FROM Exercise e"),
+        @NamedQuery(name = "Exercise.findByExerciseId", query = "SELECT e FROM Exercise e WHERE e.exercisePK.exerciseId = :exerciseId"),
+        @NamedQuery(name = "Exercise.findByClassId", query = "SELECT e FROM Exercise e WHERE e.exercisePK.classId = :classId"),
+        @NamedQuery(name = "Exercise.findByDescription", query = "SELECT e FROM Exercise e WHERE e.description = :description")})
 public class ExerciseEntity {
     private Integer exerciseId;
     private int classId;
