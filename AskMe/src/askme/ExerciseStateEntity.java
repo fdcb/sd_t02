@@ -2,9 +2,6 @@ package askme;
 
 import javax.persistence.*;
 
-/**
- * Created by Filipa on 10/05/2016.
- */
 @Entity
 @Table(name = "ExerciseState", schema = "", catalog = "")
 public class ExerciseStateEntity {

@@ -4,9 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-/**
- * Created by Filipa on 10/05/2016.
- */
+
 public class ExerciseEntityPK implements Serializable {
     private Integer exerciseId;
     private int classId;
