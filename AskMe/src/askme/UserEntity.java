@@ -2,7 +2,6 @@ package askme;
 
 import javax.persistence.*;
 
-
 @Entity
 @Table(name = "Users", schema = "", catalog = "")
 public class UserEntity {
