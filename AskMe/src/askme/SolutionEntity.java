@@ -2,7 +2,6 @@ package askme;
 
 import javax.persistence.*;
 
-
 @Entity
 @Table(name = "Solution", schema = "", catalog = "")
 @IdClass(SolutionEntityPK.class)
