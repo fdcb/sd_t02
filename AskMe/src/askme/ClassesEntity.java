@@ -5,9 +5,20 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Class", schema = "", catalog = "")
 @NamedQueries({
-        @NamedQuery(name = "Class.findAll", query = "SELECT c FROM Class c"),
-        @NamedQuery(name = "Class.findByClassId", query = "SELECT c FROM Class c WHERE c.classId = :classId"),
-        @NamedQuery(name = "Class.findByName", query = "SELECT c FROM Class c WHERE c.name = :name")})
+        @NamedQuery(
+                name = "Class.findAll",
+                query = "SELECT c FROM ClassesEntity c"
+        ),
+        @NamedQuery(
+                name = "Class.findByClassId",
+                query = "SELECT c FROM ClassesEntity c " +
+                        "WHERE c.classId = :classId"
+        ),
+        @NamedQuery(
+                name = "Class.findByName",
+                query = "SELECT c FROM ClassesEntity c WHERE c.name = :name"
+        )
+})
 public class ClassesEntity {
     private Integer classId;
     private String name;
@@ -34,13 +45,18 @@ public class ClassesEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         ClassesEntity that = (ClassesEntity) o;
 
-        if (classId != null ? !classId.equals(that.classId) : that.classId != null) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (classId != null ? !classId.equals(that.classId) :
+                that.classId != null)
+            return false;
+        if (name != null ? !name.equals(that.name) : that.name != null)
+            return false;
 
         return true;
     }

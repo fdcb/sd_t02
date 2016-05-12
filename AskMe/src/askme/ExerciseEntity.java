@@ -6,10 +6,22 @@ import javax.persistence.*;
 @Table(name = "Exercise", schema = "", catalog = "")
 @IdClass(ExerciseEntityPK.class)
 @NamedQueries({
-        @NamedQuery(name = "Exercise.findAll", query = "SELECT e FROM Exercise e"),
-        @NamedQuery(name = "Exercise.findByExerciseId", query = "SELECT e FROM Exercise e WHERE e.exercisePK.exerciseId = :exerciseId"),
-        @NamedQuery(name = "Exercise.findByClassId", query = "SELECT e FROM Exercise e WHERE e.exercisePK.classId = :classId"),
-        @NamedQuery(name = "Exercise.findByDescription", query = "SELECT e FROM Exercise e WHERE e.description = :description")})
+        @NamedQuery(
+                name = "Exercise.findAll",
+                query = "SELECT e FROM ExerciseEntity e"
+        ),
+        @NamedQuery(
+                name = "Exercise.findByClassId",
+                query = "SELECT e FROM ExerciseEntity e " +
+                        "WHERE e.classId = :classId"
+        ),
+        @NamedQuery(
+                name = "Exercise.findByClassAndId",
+                query = "SELECT e FROM ExerciseEntity e " +
+                        "WHERE e.classId = :classId " +
+                        "AND e.exerciseId = :exerciseId"
+        )
+})
 public class ExerciseEntity {
     private Integer exerciseId;
     private int classId;
@@ -69,16 +81,26 @@ public class ExerciseEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         ExerciseEntity that = (ExerciseEntity) o;
 
-        if (classId != that.classId) return false;
-        if (idState != that.idState) return false;
-        if (exerciseId != null ? !exerciseId.equals(that.exerciseId) : that.exerciseId != null) return false;
-        if (username != null ? !username.equals(that.username) : that.username != null) return false;
-        if (description != null ? !description.equals(that.description) : that.description != null) return false;
+        if (classId != that.classId)
+            return false;
+        if (idState != that.idState)
+            return false;
+        if (exerciseId != null ? !exerciseId.equals(that.exerciseId) :
+                that.exerciseId != null)
+            return false;
+        if (username != null ? !username.equals(that.username) :
+                that.username != null)
+            return false;
+        if (description != null ? !description.equals(that.description) :
+                that.description != null)
+            return false;
 
         return true;
     }
@@ -89,7 +111,8 @@ public class ExerciseEntity {
         result = 31 * result + classId;
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + idState;
-        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (description != null ?
+                description.hashCode() : 0);
         return result;
     }
 }
