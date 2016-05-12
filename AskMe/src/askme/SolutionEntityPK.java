@@ -41,14 +41,20 @@ public class SolutionEntityPK implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         SolutionEntityPK that = (SolutionEntityPK) o;
 
-        if (exerciseId != that.exerciseId) return false;
-        if (classId != that.classId) return false;
-        if (solutionId != null ? !solutionId.equals(that.solutionId) : that.solutionId != null) return false;
+        if (exerciseId != that.exerciseId)
+            return false;
+        if (classId != that.classId)
+            return false;
+        if (solutionId != null ? !solutionId.equals(that.solutionId) :
+                that.solutionId != null)
+            return false;
 
         return true;
     }
