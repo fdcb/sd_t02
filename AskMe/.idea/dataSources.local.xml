@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
+<<<<<<< HEAD
+    <data-source name="Sqlite (Xerial) - AskMe.db" uuid="4bd2a597-b9a2-41bc-9c6e-8ebcdba27f21">
+      <secret-storage>master_key</secret-storage>
+      <auth-required>false</auth-required>
+    </data-source>
+=======
     <data-source name="Sqlite (Xerial) - AskMe.db" uuid="4bd2a597-b9a2-41bc-9c6e-8ebcdba27f21" />
+>>>>>>> origin
   </component>
 </project>
