@@ -6,16 +6,23 @@ import javax.persistence.*;
 @Table(name = "Solution", schema = "", catalog = "")
 @IdClass(SolutionEntityPK.class)
 @NamedQueries({
-        @NamedQuery(name = "Solution.findAll", query =
-                "SELECT s FROM SolutionEntity s"),
-        @NamedQuery(name = "Solution.findBySolutionId", query = "SELECT s" +
-                " FROM SolutionEntity s WHERE s.solutionId = :solutionId"),
-        @NamedQuery(name = "Solution.findByExerciseId", query = "SELECT s" +
-                " FROM SolutionEntity s WHERE s.exerciseId = :exerciseId"),
-        @NamedQuery(name = "Solution.findByClassId", query = "SELECT s" +
-                " FROM SolutionEntity s WHERE s.classId = :classId"),
-        @NamedQuery(name = "Solution.findByDescription", query = "SELECT s" +
-                " FROM SolutionEntity s WHERE s.description = :description")
+        @NamedQuery(
+                name = "Solution.findAll",
+                query = "SELECT s FROM SolutionEntity s"
+        ),
+        @NamedQuery(
+                name = "Solution.findByExerciseAndClass",
+                query = "SELECT s FROM SolutionEntity s " +
+                        "WHERE s.exerciseId = :exerciseId " +
+                        "AND s.classId = :classId"
+        ),
+        @NamedQuery(
+                name = "Solution.findByClassExerciseClassAndSolutionId",
+                query = "SELECT s FROM SolutionEntity s " +
+                        "WHERE s.classId = :classId " +
+                        "AND s.exerciseId = :exerciseId " +
+                        "AND s.solutionId = :solutionId"
+        )
 })
 public class SolutionEntity {
     private Integer solutionId;
