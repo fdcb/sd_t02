@@ -1,7 +1,9 @@
 package askme;
 
-/**
- * Created by Vanessa on 12/05/2016.
- */
+import javax.faces.bean.RequestScoped;
+import javax.inject.Named;
+
+@Named (value="exerciseStateControler")
+@RequestScoped
 public class ExerciseStateControler {
 }
