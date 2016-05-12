@@ -13,10 +13,18 @@
       <imported>true</imported>
       <remarks>$PROJECT_DIR$/src/META-INF/persistence.xml</remarks>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/../AskMe.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:/T02SD/AskMe.db</jdbc-url>
       <explain-plan-config>
         <provider>com.intellij.database.plan.ExplainPlanProvider.NullExplainPlanProvider</provider>
       </explain-plan-config>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/xerial-sqlite-license.txt</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/sqlite-jdbc-3.8.9.jar</url>
+        </library>
+      </libraries>
     </data-source>
     <data-source source="LOCAL" name="NewPersistenceUnit/TopLink" uuid="46f882a6-c3bb-43c5-8f8b-d8a1b538c88c">
       <driver-ref>sqlite.xerial</driver-ref>
@@ -24,7 +32,15 @@
       <imported>true</imported>
       <remarks>$PROJECT_DIR$/src/META-INF/persistence.xml</remarks>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/../AskMe.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:/T02SD/AskMe.db</jdbc-url>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/xerial-sqlite-license.txt</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/sqlite-jdbc-3.8.9.jar</url>
+        </library>
+      </libraries>
     </data-source>
     <data-source source="LOCAL" name="NewPersistenceUnit/EclipseLink" uuid="c9201920-87be-49dc-bd08-54000c3d7c89">
       <driver-ref>sqlite.xerial</driver-ref>
@@ -32,7 +48,15 @@
       <imported>true</imported>
       <remarks>$PROJECT_DIR$/src/META-INF/persistence.xml</remarks>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/../AskMe.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:/T02SD/AskMe.db</jdbc-url>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/xerial-sqlite-license.txt</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/sqlite-jdbc-3.8.9.jar</url>
+        </library>
+      </libraries>
     </data-source>
     <data-source source="LOCAL" name="NewPersistenceUnit/OpenJPA" uuid="9959b297-f5ce-4129-97dc-7cdba66e4342">
       <driver-ref>sqlite.xerial</driver-ref>
@@ -40,7 +64,15 @@
       <imported>true</imported>
       <remarks>$PROJECT_DIR$/src/META-INF/persistence.xml</remarks>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/../AskMe.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:/T02SD/AskMe.db</jdbc-url>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/xerial-sqlite-license.txt</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/sqlite-jdbc-3.8.9.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>
