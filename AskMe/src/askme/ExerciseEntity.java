@@ -7,10 +7,6 @@ import javax.persistence.*;
 @IdClass(ExerciseEntityPK.class)
 @NamedQueries({
         @NamedQuery(
-                name = "Exercise.findAll",
-                query = "SELECT e FROM ExerciseEntity e"
-        ),
-        @NamedQuery(
                 name = "Exercise.findByClassId",
                 query = "SELECT e FROM ExerciseEntity e " +
                         "WHERE e.classId = :classId"
