@@ -6,11 +6,17 @@ import javax.persistence.*;
 @Table(name = "Solution", schema = "", catalog = "")
 @IdClass(SolutionEntityPK.class)
 @NamedQueries({
-        @NamedQuery(name = "Solution.findAll", query = "SELECT s FROM Solution s"),
-        @NamedQuery(name = "Solution.findBySolutionId", query = "SELECT s FROM Solution s WHERE s.solutionPK.solutionId = :solutionId"),
-        @NamedQuery(name = "Solution.findByExerciseId", query = "SELECT s FROM Solution s WHERE s.solutionPK.exerciseId = :exerciseId"),
-        @NamedQuery(name = "Solution.findByClassId", query = "SELECT s FROM Solution s WHERE s.solutionPK.classId = :classId"),
-        @NamedQuery(name = "Solution.findByDescription", query = "SELECT s FROM Solution s WHERE s.description = :description")})
+        @NamedQuery(name = "Solution.findAll", query =
+                "SELECT s FROM SolutionEntity s"),
+        @NamedQuery(name = "Solution.findBySolutionId", query = "SELECT s" +
+                " FROM SolutionEntity s WHERE s.solutionId = :solutionId"),
+        @NamedQuery(name = "Solution.findByExerciseId", query = "SELECT s" +
+                " FROM SolutionEntity s WHERE s.exerciseId = :exerciseId"),
+        @NamedQuery(name = "Solution.findByClassId", query = "SELECT s" +
+                " FROM SolutionEntity s WHERE s.classId = :classId"),
+        @NamedQuery(name = "Solution.findByDescription", query = "SELECT s" +
+                " FROM SolutionEntity s WHERE s.description = :description")
+})
 public class SolutionEntity {
     private Integer solutionId;
     private int exerciseId;
@@ -81,17 +87,28 @@ public class SolutionEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         SolutionEntity that = (SolutionEntity) o;
 
-        if (exerciseId != that.exerciseId) return false;
-        if (classId != that.classId) return false;
-        if (idState != that.idState) return false;
-        if (solutionId != null ? !solutionId.equals(that.solutionId) : that.solutionId != null) return false;
-        if (username != null ? !username.equals(that.username) : that.username != null) return false;
-        if (description != null ? !description.equals(that.description) : that.description != null) return false;
+        if (exerciseId != that.exerciseId)
+            return false;
+        if (classId != that.classId)
+            return false;
+        if (idState != that.idState)
+            return false;
+        if (solutionId != null ? !solutionId.equals(that.solutionId) :
+                that.solutionId != null)
+            return false;
+        if (username != null ? !username.equals(that.username) :
+                that.username != null)
+            return false;
+        if (description != null ? !description.equals(that.description) :
+                that.description != null)
+            return false;
 
         return true;
     }

@@ -5,9 +5,13 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Users", schema = "", catalog = "")
 @NamedQueries({
-        @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u"),
-        @NamedQuery(name = "Users.findByUsername", query = "SELECT u FROM Users u WHERE u.username = :username"),
-        @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password")})
+        @NamedQuery(name = "Users.findAll", query =
+                "SELECT u FROM UserEntity u"),
+        @NamedQuery(name = "Users.findByUsername", query = "SELECT u" +
+                " FROM UserEntity u WHERE u.username = :username"),
+        @NamedQuery(name = "Users.findByPassword", query = "SELECT u" +
+                " FROM UserEntity u WHERE u.password = :password")
+})
 public class UserEntity {
     private String username;
     private String password;
@@ -34,13 +38,19 @@ public class UserEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         UserEntity that = (UserEntity) o;
 
-        if (username != null ? !username.equals(that.username) : that.username != null) return false;
-        if (password != null ? !password.equals(that.password) : that.password != null) return false;
+        if (username != null ? !username.equals(that.username) :
+                that.username != null)
+            return false;
+        if (password != null ? !password.equals(that.password) :
+                that.password != null)
+            return false;
 
         return true;
     }
