@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="Sqlite (Xerial) - AskMe.db" uuid="bbefd4fc-0438-4b3f-9fd9-d4d09d4c41cb">
+    <data-source name="Sqlite (Xerial) - AskMe.db" uuid="4bd2a597-b9a2-41bc-9c6e-8ebcdba27f21">
       <secret-storage>master_key</secret-storage>
       <auth-required>false</auth-required>
     </data-source>
-    <data-source name="NewPersistenceUnit/Hibernate" uuid="2a5999a4-2b55-4a18-8b0f-a5b156887c71">
-      <user-password>dfc0dfcedfc8dfc9df90dfd9dfdbdfc6dfc3dfdedfcfdf90dfe9df90df85dffedf9adf98dff9dfeedf85dfebdfd9dfc1dfe7dfcfdf84dfcedfc8</user-password>
-    </data-source>
-    <data-source name="NewPersistenceUnit/TopLink" uuid="46f882a6-c3bb-43c5-8f8b-d8a1b538c88c" />
-    <data-source name="NewPersistenceUnit/EclipseLink" uuid="c9201920-87be-49dc-bd08-54000c3d7c89" />
-    <data-source name="NewPersistenceUnit/OpenJPA" uuid="9959b297-f5ce-4129-97dc-7cdba66e4342" />
   </component>
 </project>
