@@ -5,9 +5,13 @@ import javax.persistence.*;
 @Entity
 @Table(name = "ExerciseState", schema = "", catalog = "")
 @NamedQueries({
-        @NamedQuery(name = "ExerciseState.findAll", query = "SELECT e FROM ExerciseState e"),
-        @NamedQuery(name = "ExerciseState.findByStateId", query = "SELECT e FROM ExerciseState e WHERE e.stateId = :stateId"),
-        @NamedQuery(name = "ExerciseState.findByState", query = "SELECT e FROM ExerciseState e WHERE e.state = :state")})
+        @NamedQuery(name = "ExerciseState.findAll", query =
+                "SELECT e FROM ExerciseStateEntity e"),
+        @NamedQuery(name = "ExerciseState.findByStateId", query = "SELECT e" +
+                " FROM ExerciseStateEntity e WHERE e.stateId = :stateId"),
+        @NamedQuery(name = "ExerciseState.findByState", query = "SELECT e" +
+                " FROM ExerciseStateEntity e WHERE e.state = :state")
+})
 public class ExerciseStateEntity {
     private Integer stateId;
     private String state;
@@ -34,13 +38,18 @@ public class ExerciseStateEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         ExerciseStateEntity that = (ExerciseStateEntity) o;
 
-        if (stateId != null ? !stateId.equals(that.stateId) : that.stateId != null) return false;
-        if (state != null ? !state.equals(that.state) : that.state != null) return false;
+        if (stateId != null ? !stateId.equals(that.stateId) :
+                that.stateId != null)
+            return false;
+        if (state != null ? !state.equals(that.state) : that.state != null)
+            return false;
 
         return true;
     }

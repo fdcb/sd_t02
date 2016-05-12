@@ -36,7 +36,8 @@ public class ExerciseEntityPK implements Serializable {
         ExerciseEntityPK that = (ExerciseEntityPK) o;
 
         if (classId != that.classId) return false;
-        if (exerciseId != null ? !exerciseId.equals(that.exerciseId) : that.exerciseId != null) return false;
+        if (exerciseId != null ? !exerciseId.equals(that.exerciseId) :
+                that.exerciseId != null) return false;
 
         return true;
     }
