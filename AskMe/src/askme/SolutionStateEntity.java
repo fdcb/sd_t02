@@ -5,12 +5,15 @@ import javax.persistence.*;
 @Entity
 @Table(name = "SolutionState", schema = "", catalog = "")
 @NamedQueries({
-        @NamedQuery(name = "SolutionState.findAll", query =
-                "SELECT s FROM SolutionStateEntity s"),
-        @NamedQuery(name = "SolutionState.findByStateId", query = "SELECT s" +
-                " FROM SolutionStateEntity s WHERE s.stateId = :stateId"),
-        @NamedQuery(name = "SolutionState.findByState", query = "SELECT s" +
-                " FROM SolutionStateEntity s WHERE s.state = :state")
+        @NamedQuery(
+                name = "SolutionState.findAll",
+                query = "SELECT s FROM SolutionStateEntity s"
+        ),
+        @NamedQuery(
+                name = "SolutionState.findByStateId",
+                query = "SELECT s FROM SolutionStateEntity s " +
+                        "WHERE s.stateId = :stateId"
+        )
 })
 public class SolutionStateEntity {
     private Integer stateId;
