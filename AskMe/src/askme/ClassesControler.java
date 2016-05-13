@@ -21,7 +21,25 @@ public class ClassesControler {
         return classesList;
     }
 
-    ClassesEntity newClass = new ClassesEntity();
+    public List<ClassesEntity> getProductList( int class_id){
 
-    public String add
+        classesList = classesSessionBean.getClasses();
+        return classesList;
+    }
+
+    public List<ClassesEntity> getProductList( String name ){
+
+        classesList = classesSessionBean.getClasses();
+        return classesList;
+    }
+
+    //ClassesEntity newClass = new ClassesEntity();
+
+   /* public String addNewClasses(){
+        newClass.setClassId();
+        newClass.setName();
+        classesSessionBean.addClass( newClass );
+        classesList = classesSessionBean.getClasses();
+        return "listClasses.xhtml";
+    }*/
 }
