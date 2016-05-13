@@ -17,11 +17,18 @@ import javax.persistence.*;
                         "AND s.classId = :classId"
         ),
         @NamedQuery(
-                name = "Solution.findByClassExerciseClassAndSolutionId",
+                name = "Solution.findByExerciseClassAndSolutionId",
                 query = "SELECT s FROM SolutionEntity s " +
                         "WHERE s.classId = :classId " +
                         "AND s.exerciseId = :exerciseId " +
                         "AND s.solutionId = :solutionId"
+        ),
+        @NamedQuery(
+                name = "Solution.findByState",
+                query = "SELECT s FROM SolutionEntity s " +
+                        "WHERE s.classId = :classId " +
+                        "AND s.exerciseId = :exerciseId " +
+                        "AND s.idState = :stateId"
         )
 })
 public class SolutionEntity {

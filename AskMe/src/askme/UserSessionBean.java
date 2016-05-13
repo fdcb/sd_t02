@@ -1,9 +1,13 @@
 package askme;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 @Stateless(name = "UserSessionEJB")
 public class UserSessionBean {
-    public UserSessionBean() {
-    }
+    @PersistenceContext
+    EntityManager entityManager;
+
+    
 }
