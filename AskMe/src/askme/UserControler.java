@@ -11,12 +11,20 @@ import java.util.List;
 public class UserControler {
 
     @EJB
-    UserSessionBean user;
+    UserSessionBean userSessionBean;
 
     List<UserEntity> userList = new ArrayList<>();
 
-  /*  public List<UserEntity> getUserList(){
-        userList = user.getUsers();
-    }*/
+    public List<UserEntity> getUserList(){
+
+        userList = userSessionBean.getUsers();
+        return userList;
+    }
+
+    public List<UserEntity> getUserList( String username ){
+
+        userList = userSessionBean.getUsers();
+        return userList;
+    }
 
 }
