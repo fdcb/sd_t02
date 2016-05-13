@@ -4,3 +4,31 @@
 4º Create bean para cada entidade
 5º Create controler para cada entidade
 6º Create xhml para cada função
+
+
+---------------------------------------
+
+1º Login
+ Sign In | Register
+	|
+    V
+
+Ver UC's ( lista )
+
+Depois ou:
+
+- permite criar nova UC
+- Escolher uma dada UC, lista os exercicios todos criados
+
+- Exercicios:
+	--> Inserir Exercicio
+	--> Escolher Exercicio
+				|
+			    v
+	-> Listar as Soluções
+
+- Solution:
+
+	--> Inserir Solução
+	--> Escolher Solução
+
