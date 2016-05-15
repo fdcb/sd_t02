@@ -29,7 +29,4 @@ public class ClassesSessionBean {
                 createNamedQuery("Class.findByName").
                 setParameter("name", name).getResultList();
     }
-
-    public ClassesSessionBean() {
-    }
 }
