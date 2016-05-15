@@ -3,6 +3,7 @@ package askme;
 import javax.ejb.EJB;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Named;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,13 +24,13 @@ public class ClassesControler {
 
     public List<ClassesEntity> getProductList( int class_id){
 
-        classesList = classesSessionBean.getClasses();
+        classesList = classesSessionBean.getClasses(class_id);
         return classesList;
     }
 
     public List<ClassesEntity> getProductList( String name ){
 
-        classesList = classesSessionBean.getClasses();
+        classesList = classesSessionBean.getClasses(name);
         return classesList;
     }
 
@@ -42,4 +43,7 @@ public class ClassesControler {
         classesList = classesSessionBean.getClasses();
         return "listClasses.xhtml";
     }*/
+
+
+
 }
