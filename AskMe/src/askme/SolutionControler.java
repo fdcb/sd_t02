@@ -21,15 +21,17 @@ public class SolutionControler {
         return solutionList;
     }
 
-    public List<SolutionEntity> getSolutionList(int classId, int exerciseId){
+    public List<SolutionEntity> getSolutionList(int classId, int exerciseId) {
 
-        solutionList = solutionSessionBean.getSolutions();
+        solutionList = solutionSessionBean.getSolutions(classId, exerciseId);
         return solutionList;
     }
 
-    public List<SolutionEntity> getSolutionList(int classId, int exerciseId, int solutionId){
+    public List<SolutionEntity> getSolutionList(int classId, int exerciseId,
+                                                int solutionId) {
 
-        solutionList = solutionSessionBean.getSolutions();
+        solutionList = solutionSessionBean.getSolutions(classId, exerciseId,
+                solutionId);
         return solutionList;
     }
 }
