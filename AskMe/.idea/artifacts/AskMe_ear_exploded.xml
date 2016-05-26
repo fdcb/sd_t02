@@ -3,6 +3,11 @@
     <output-path>$PROJECT_DIR$/out/artifacts/AskMe_ear_exploded</output-path>
     <root id="root">
       <element id="javaee-facet-resources" facet="AskMe/javaeeApplication/javaEEApplication" />
+      <element id="directory" name="lib">
+        <element id="archive" name="AskMe.jar">
+          <element id="module-output" name="AskMe" />
+        </element>
+      </element>
     </root>
   </artifact>
 </component>
