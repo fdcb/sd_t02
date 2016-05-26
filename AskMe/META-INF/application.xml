@@ -2,6 +2,7 @@
 <application xmlns="http://java.sun.com/xml/ns/javaee"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_6.xsd"
+<<<<<<< HEAD
              version="6"
 >
     <application-name>Ask Me</application-name>
@@ -11,4 +12,8 @@
     <module>
         <ejb>C:\T02SD\AskMe\out\artifacts\beans</ejb>
     </module>
+=======
+             version="6">
+
+>>>>>>> 4ecc9d0fd7141f33c058561fed18eb9278d083ab
 </application>
