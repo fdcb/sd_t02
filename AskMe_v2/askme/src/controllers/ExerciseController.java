@@ -32,8 +32,9 @@ public class ExerciseController {
     private String username;
 
 
-    public List<ExerciseEntity> getExerciseList(int exercise_id) {
-        return exerciseSessionBean.getExercises(exercise_id);
+    public List<ExerciseEntity> getExerciseList() {
+        exerciseEntityList = exerciseSessionBean.getExercises(idClass);
+        return exerciseEntityList;
     }
 
     public List<ExerciseEntity> getExerciseList(int classId, int exercise_id) {

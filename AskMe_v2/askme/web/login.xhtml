@@ -15,25 +15,18 @@
                 <table border="0">
                     <thead>
                         <tr>
-                            <b>Username:</b>&nbsp; <h:inputText value="#{userController.username}"/><br/>
-                            <b>Password:</b>&nbsp; <h:inputSecret value="#{userController.pass}"/><br/>
-                        </tr>
-                    </thead>
-                </table>
-                </h:form>
-                <center>
-                    <h:form style="margin-top: 20px">    
-                    <table border="0">
-                        <thead>
-                            <tr>
-                                <th> <h:commandButton value="Iniciar" action="#{userController.logIn()}"/> </th>
+                            <b>Username:</b>&nbsp; <h:inputText
+                                binding="#{user}"/><br/>
+                            <b>Password:</b>&nbsp; <h:inputSecret
+                                binding="#{pass}"/><br/>
+                                <th> <h:commandButton value="Iniciar"
+                                                      action="#{userController.logIn(user.value)}"/> </th>
                                 <th></th>
                                 <th><h:commandButton value="Cancelar" action="welcome"/></th>
                             </tr>
                         </thead>
                     </table>
                     </h:form>
-                </center>
             </center>
         </div>
     </h:body>
