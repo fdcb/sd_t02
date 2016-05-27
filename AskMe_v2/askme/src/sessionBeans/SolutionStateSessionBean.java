@@ -10,6 +10,9 @@ import java.util.List;
 
 @Stateless(name = "SolutionStateSessionEJB")
 public class SolutionStateSessionBean {
+    public static final String WRONG = "wrong";
+    public static final String UNSEEN = "unseen";
+    public static final String CORRECT = "correct";
     private EntityManagerFactory entityManagerFactory = Persistence
             .createEntityManagerFactory("newpersistenceunit");
 

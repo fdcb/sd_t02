@@ -39,7 +39,9 @@ public class ExerciseSessionBean {
     public void addExercise(ExerciseEntity exerciseEntity){
         EntityManager entityManager = getEntityManagerFactory()
                 .createEntityManager();
+        entityManager.getTransaction().begin();
         entityManager.persist(exerciseEntity);
+        entityManager.getTransaction().commit();
     }
 
     public void changeExerciseState(ExerciseEntity exerciseEntity,

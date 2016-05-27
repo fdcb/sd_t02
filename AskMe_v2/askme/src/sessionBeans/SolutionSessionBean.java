@@ -63,7 +63,9 @@ public class SolutionSessionBean {
     public void addSolution(SolutionEntity solutionEntity){
         EntityManager entityManager = getEntityManagerFactory()
                 .createEntityManager();
+        entityManager.getTransaction().begin();
         entityManager.persist(solutionEntity);
+        entityManager.getTransaction().commit();
     }
 
     public void changeSolutionState(SolutionEntity solutionEntity, int

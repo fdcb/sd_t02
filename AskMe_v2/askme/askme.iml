@@ -4,7 +4,7 @@
     <facet type="jpa" name="JPA">
       <configuration>
         <setting name="validation-enabled" value="true" />
-        <setting name="provider-name" value="" />
+        <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="NewPersistenceUnit" value="503805f5-891e-45a9-9d77-fa7b12f802d2" />
           <factory-entry name="newpersistenceunit" value="503805f5-891e-45a9-9d77-fa7b12f802d2" />
@@ -46,6 +46,7 @@
     <orderEntry type="library" exported="" scope="PROVIDED" name="GlassFish 4.1.1 - CDI: Contexts and Dependency Injection" level="application_server_libraries" />
     <orderEntry type="library" scope="PROVIDED" name="GlassFish 4.1.1 - EJB" level="application_server_libraries" />
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
-    <orderEntry type="library" name="JBoss Weld-2.0.3" level="project" />
+    <orderEntry type="library" name="sqlite-dialect-0.1.0" level="project" />
+    <orderEntry type="library" name="sqlite-jdbc-3.8.11.2" level="project" />
   </component>
 </module>
