@@ -6,7 +6,7 @@ import sessionBeans.ClassesSessionBean;
 import javax.ejb.EJB;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Named;
-import java.util.List;
+import java.util.*;
 
 @Named (value="classesController")
 @RequestScoped
@@ -14,25 +14,62 @@ public class ClassesController {
     @EJB
     ClassesSessionBean classesSessionBean;
 
-    public List<ClassesEntity> getProductList() {
+    ClassesEntity classesEntity = null;
+    List<ClassesEntity> classList = new ArrayList<>();
+
+    int idClass;
+    String name;
+
+
+    public List<ClassesEntity> getClassList() {
         return classesSessionBean.getClasses();
     }
 
-    public List<ClassesEntity> getProductList(int class_id) {
+    public List<ClassesEntity> getClassList(int class_id) {
         return classesSessionBean.getClasses(class_id);
     }
 
-    public List<ClassesEntity> getProductList(String name) {
+    public List<ClassesEntity> getClassList(String name) {
         return classesSessionBean.getClasses(name);
     }
 
-    //ClassesEntity newClass = new ClassesEntity();
 
-   /* public String addNewClasses() {
-        newClass.setClassId();
-        newClass.setName();
-        ClassesSessionBean.addClass(newClass);
-        classesList = ClassesSessionBean.getClasses();
+    public int getIdClass() {
+        return idClass;
+    }
+
+    public void setIdClass(int idClass) {
+        this.idClass = idClass;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ClassesEntity getClassesEntity() {
+        return classesEntity;
+    }
+
+    public void setClassesEntity(ClassesEntity classesEntity) {
+        this.classesEntity = classesEntity;
+    }
+
+    public String addClasses(){
+        classesEntity = new ClassesEntity();
+        classesEntity.setClassId( idClass );
+        classesEntity.setName( name );
+        classesSessionBean.addClass( classesEntity);
+        return "welcome.xhtml";
+    }
+
+    public String getClassFromDB(int idClass) {
+        classesEntity = classesSessionBean.getClassesByID( idClass );
         return "listClasses.xhtml";
-    }*/
+    }
+
+
 }

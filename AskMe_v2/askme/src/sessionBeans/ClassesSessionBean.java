@@ -6,10 +6,14 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Stateless(name = "classesSessionEJB")
 public class ClassesSessionBean {
+    @PersistenceContext
+    EntityManager em;
+
     private EntityManagerFactory entityManagerFactory = Persistence
            .createEntityManagerFactory("newpersistenceunit");
 
@@ -48,5 +52,14 @@ public class ClassesSessionBean {
         EntityManager entityManager = getEntityManagerFactory()
                 .createEntityManager();
         entityManager.persist(classesEntity);
+    }
+
+    public ClassesEntity getClassesByID(int class_id) {
+        List<ClassesEntity> list = em.createNamedQuery("Class.findByClassId").setParameter("classId", class_id).getResultList();
+
+        if (! list.isEmpty()){
+            return list.get(0);
+        }
+        return null;
     }
 }
