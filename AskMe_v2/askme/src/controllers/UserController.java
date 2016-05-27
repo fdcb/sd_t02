@@ -18,7 +18,7 @@ public class UserController {
 
     static UsersEntity user = null;
     String pass, username;
-    int id=0;
+    int id=0, numberAcess=0;
     boolean loginFail= false;
 
     List<UsersEntity> list = new ArrayList<>();
@@ -32,6 +32,39 @@ public class UserController {
     }
 
     // ---- [ GETTERS | SETTERS ] -----//
+
+    public int getNumberAcess() {
+        return numberAcess;
+    }
+
+    public void setNumberAcess(int numberAcess) {
+        this.numberAcess = numberAcess;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public UsersSessionBean getUserSessionBean() {
+        return userSessionBean;
+    }
+
+    public void setUserSessionBean(UsersSessionBean userSessionBean) {
+        this.userSessionBean = userSessionBean;
+    }
+
+    public List<UsersEntity> getList() {
+        return list;
+    }
+
+    public void setList(List<UsersEntity> list) {
+        this.list = list;
+    }
+
     public String getUsername() {
         return username;
     }
