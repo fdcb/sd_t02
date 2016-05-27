@@ -10,7 +10,7 @@
         <h:form>
          <div class="maindiv1">
                 <div class="acessos">
-                    <p>Nº de Acessos</p>#{userController.numberAcess}
+                    <p>Nº de Acessos</p>#{userController.numberAcess }
                 </div>
                 <h:commandButton value="LogOut" action="welcome"/>
             </div>
@@ -33,7 +33,7 @@
             </center>
             <hr class="noscreen" />
             <center>
-                <h:commandButton style="width:300px; margin-top: 35px" value="Eliminar todas as soluções erradas" action="#{solucaoController.apagarErradas()}" onclick="alert ('Todas as soluções erradas foram apagadas.');" />
+                <h:commandButton style="width:300px; margin-top: 35px" value="Eliminar todas as soluções erradas" action="#{solutionController.deleteWrong()}" onclick="alert ('Todas as soluções erradas foram apagadas.');" />
             </center>
 
         </h:form> 

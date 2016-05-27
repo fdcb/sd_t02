@@ -56,4 +56,6 @@ public class ExerciseSessionBean {
         exercise.setId_state(state_id);
         entityManager.getTransaction().commit();
     }
+
+
 }

@@ -16,7 +16,11 @@ import javax.persistence.*;
                 query = "SELECT e FROM ExerciseEntity e " +
                         "WHERE e.classId = :classId " +
                         "AND e.exerciseId = :exerciseId"
-        )
+        ),
+        @NamedQuery(name = "Exercise.changeState",
+                query = "SELECT e FROM ExerciseEntity e"+
+                        " WHERE e.exerciseId=:exerciseId and e.classId=:classId"),
+
 })
 public class ExerciseEntity {
     private Integer exerciseId;

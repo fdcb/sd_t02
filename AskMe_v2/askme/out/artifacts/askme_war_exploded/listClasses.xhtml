@@ -5,10 +5,51 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       >
     <h:head>
-        <link href="css/style_askMe.css" rel="stylesheet" type="text/css"/>
+        <link href="css/style_askMe_2.css" rel="stylesheet" type="text/css"/>
         <title>AskMe</title>
     </h:head>
     <h:body>
+
+        <h:form>
+            <div class="maindiv1">
+                <div class="acessos">
+
+                    <center><h2>Informação adicional</h2></center>
+                    <hr class="noscreen" />
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Unidade Curricular: "/>
+                        <h:outputLabel value="#{exerciseController.exerciseEntity.classId}"/>
+                        <h:outputLabel value="Exercício: "/>
+                        <h:outputLabel value="#{exerciseController.exerciseEntity.exerciseId}"/>
+                        <h:commandButton style=" marmargin-top: 10px" value="Classificar" action="classifySolution" />
+                        <h:commandButton style=" marmargin-top: 10px" value="Consultas" action="consult" />
+
+                        <br/>
+                    </h:panelGrid>
+
+
+                </div>
+
+            </div>
+        </h:form>
+
+        <h:form>
+            <div class="maindiv3">
+                <div class="acessos">
+
+                    <center><h2>Utilizador Online</h2></center>
+                    <hr class="noscreen" />
+                    <h3>
+                        #{userController.username}
+
+                    </h3>
+
+
+                </div>
+
+            </div>
+        </h:form>
+
         <center>
            
             <div class="maindiv" style="">
@@ -29,13 +70,15 @@
                     <f:view>
                         <h:form >
                             <h:commandButton value="Criar Unidade Curricular" onclick="toggle('form'); return false;" />
+                            <h:commandButton value="Submeter Exercício" action="SubmitExercise" />
+                            <h:commandButton value="Submeter Solução" action="SubmitSolution" />
                         </h:form>
                       
                       <br></br>
                       
                             <h:form id="form" style="display:none; width: 30%; margin-right: 150px ">
                           
-                                    <h:inputTextarea style="height:60px; width:300px;  resize: none; " value="#{classesController.Name}"/>
+                                    <h:inputTextarea style="height:60px; width:300px;  resize: none; " value="#{classesController.name}"/>
                                     <h:commandButton value="Guardar" style="width:306px" action="#{classesController.addClasses()}" onclick="alert ('Unidade Curricular #{classesController.name} criada!');"/>
                                
                              </h:form>
