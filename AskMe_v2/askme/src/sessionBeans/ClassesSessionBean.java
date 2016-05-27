@@ -11,8 +11,6 @@ import java.util.List;
 
 @Stateless(name = "classesSessionEJB")
 public class ClassesSessionBean {
-    @PersistenceContext
-    EntityManager em;
 
     private EntityManagerFactory entityManagerFactory = Persistence
            .createEntityManagerFactory("newpersistenceunit");
@@ -31,12 +29,13 @@ public class ClassesSessionBean {
     }
 
     @SuppressWarnings("unchecked")
-    public List<ClassesEntity> getClasses(int class_id){
+    public ClassesEntity getClasses(int class_id){
         EntityManager entityManager = getEntityManagerFactory()
                 .createEntityManager();
-        return (List<ClassesEntity>) entityManager.
+        List<ClassesEntity> classesEntities = (List<ClassesEntity>) entityManager.
                 createNamedQuery("Class.findByClassId").
                 setParameter("classId", class_id).getResultList();
+        return classesEntities.get(0);
     }
 
     @SuppressWarnings("unchecked")
@@ -52,14 +51,5 @@ public class ClassesSessionBean {
         EntityManager entityManager = getEntityManagerFactory()
                 .createEntityManager();
         entityManager.persist(classesEntity);
-    }
-
-    public ClassesEntity getClassesByID(int class_id) {
-        List<ClassesEntity> list = em.createNamedQuery("Class.findByClassId").setParameter("classId", class_id).getResultList();
-
-        if (! list.isEmpty()){
-            return list.get(0);
-        }
-        return null;
     }
 }
