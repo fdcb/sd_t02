@@ -38,4 +38,14 @@ public class UsersSessionBean {
                 .createEntityManager();
         entityManager.persist(usersEntity);
     }
+
+    @SuppressWarnings("Unchecked")
+    public List<UsersEntity> getUsers(String username, String password){
+        EntityManager entityManager = getEntityManagerFactory()
+                .createEntityManager();
+        return (List<UsersEntity>) entityManager.
+                createNamedQuery("Users.findByUsernamePassword").
+                setParameter("username", username).
+                setParameter("password", password).getResultList();
+    }
 }
