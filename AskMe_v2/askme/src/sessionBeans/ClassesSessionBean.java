@@ -50,6 +50,8 @@ public class ClassesSessionBean {
     public void addClass(ClassesEntity classesEntity){
         EntityManager entityManager = getEntityManagerFactory()
                 .createEntityManager();
+        entityManager.getTransaction().begin();
         entityManager.persist(classesEntity);
+        entityManager.getTransaction().commit();
     }
 }

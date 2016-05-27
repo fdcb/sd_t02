@@ -43,10 +43,4 @@ public class ExerciseStateSessionBean {
                 setParameter("state", state).getResultList();
     }
 
-    @SuppressWarnings("unchecked")
-    public void addState(ExerciseStateEntity exerciseStateEntity){
-        EntityManager entityManager = getEntityManagerFactory()
-                .createEntityManager();
-        entityManager.persist(exerciseStateEntity);
-    }
 }

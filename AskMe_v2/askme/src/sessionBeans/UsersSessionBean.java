@@ -36,7 +36,9 @@ public class UsersSessionBean {
     public void addUser(UsersEntity usersEntity){
         EntityManager entityManager = getEntityManagerFactory()
                 .createEntityManager();
+        entityManager.getTransaction().begin();
         entityManager.persist(usersEntity);
+        entityManager.getTransaction().commit();
     }
 
     @SuppressWarnings("Unchecked")
