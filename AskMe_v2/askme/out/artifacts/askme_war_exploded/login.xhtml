@@ -15,8 +15,8 @@
                 <table border="0">
                     <thead>
                         <tr>
-                            <b>Username:</b>&nbsp; <h:inputText value="#{userControler.username}"/><br/>
-                            <b>Password:</b>&nbsp; <h:inputSecret value="#{userControler.password}"/><br/>
+                            <b>Username:</b>&nbsp; <h:inputText value="#{userController.username}"/><br/>
+                            <b>Password:</b>&nbsp; <h:inputSecret value="#{userController.pass}"/><br/>
                         </tr>
                     </thead>
                 </table>
@@ -26,7 +26,7 @@
                     <table border="0">
                         <thead>
                             <tr>
-                                <th> <h:commandButton value="Iniciar" action="#{userControler.logIn()}"/> </th>
+                                <th> <h:commandButton value="Iniciar" action="#{userController.logIn()}"/> </th>
                                 <th></th>
                                 <th><h:commandButton value="Cancelar" action="welcome"/></th>
                             </tr>
