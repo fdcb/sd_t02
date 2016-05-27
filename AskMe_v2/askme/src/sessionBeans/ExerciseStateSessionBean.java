@@ -42,4 +42,11 @@ public class ExerciseStateSessionBean {
                 createNamedQuery("ExerciseState.findByState").
                 setParameter("state", state).getResultList();
     }
+
+    @SuppressWarnings("unchecked")
+    public void addState(ExerciseStateEntity exerciseStateEntity){
+        EntityManager entityManager = getEntityManagerFactory()
+                .createEntityManager();
+        entityManager.persist(exerciseStateEntity);
+    }
 }
