@@ -59,7 +59,7 @@ public class ExerciseController {
          List<ClassesEntity> classesEntityList = new ArrayList<>();
          List<UsersEntity> user = new ArrayList<>();
 
-         classesEntityList = exerciseSessionBean
+         //classesEntityList = exerciseSessionBean
          exerciseEntityList=exerciseSessionBean.getExercises( exerciseEntity.getExerciseId() );
 
          if ( !user.isEmpty() ){
@@ -80,7 +80,7 @@ public class ExerciseController {
          return "listClasses.xhtml";
     }
 
-    public String closeExercise(){
+  /*  public String closeExercise(){
         List<Solucoes> solucoes = new ArrayList<>();
         solucoes = sBean.getByIDEXUC(id_uc, id_exercicio);
         if(solucoes.isEmpty()){
@@ -123,5 +123,5 @@ public class ExerciseController {
             }
         }
         return "close_exercicio.xhtml";
-    }
+    }*/
 }
