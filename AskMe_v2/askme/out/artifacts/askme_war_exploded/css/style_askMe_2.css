@@ -1,7 +1,7 @@
 .maindiv{
 	position: absolute;
         width:30%;
-        height:30%;
+        height:40%;
         left:0;
         right:0;
         top:0;
@@ -20,7 +20,7 @@
 .maindiv1{
 	position: absolute;
         width:200px;
-        height:100px;
+        height:210px;
         right:0;
         top:0;
         margin-right: 20px;
@@ -51,6 +51,40 @@
 }
 
 .maindiv2 h2 { color: #000; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+
+.maindiv3{
+    position: absolute;
+    width:10%;
+    height:15%;
+    right:0;
+
+    margin-right: 20px;
+    margin-top: 300px;
+    background-color:  rgba(255, 255, 255, 0.9); /* o ultimo parametro é a opacidade da caixa */
+    overflow: auto;
+
+    border-radius: 25px;
+    padding:25px;
+}
+
+.maindiv3 h2 { color: #000; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+
+.maindiv4{
+    position: absolute;
+    width:30%;
+    height:40%;
+
+   
+    background-color:  rgba(255, 255, 255, 0.9); /* o ultimo parametro é a opacidade da caixa */
+    overflow: auto;
+
+    border-radius: 25px;
+    padding:25px;
+}
+
+.maindiv4 h2 { color: #000; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+
+
 
 body { 
     width: 50%;

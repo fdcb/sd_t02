@@ -9,6 +9,8 @@
         
     </h:head>
     <h:body>
+
+
         <center>
             <div class="maindiv" style="">
                     <div class="header" style="">
@@ -17,7 +19,7 @@
                     </div>
                    
                         <p></p><p></p>
-                        <h2> Unidade Curricular - #{ClassesController.classes.getName()} </h2>
+                        <h2> Unidade Curricular - #{classesController.classes.getName()} </h2>
                         <f:view>
                             <h:form >
                                 <h:commandButton value="Submeter Exercício" onclick="toggle('form'); return false;" />
@@ -25,10 +27,11 @@
                           <br></br>
                                 <h:form id="form" style="display:none; width: 30%; margin-right: 150px ">
 
-                                        <h:inputTextarea style="height:100px; width:300px;  resize: none; " value="#{exerciseController.Description}"/>
-                                        <h:commandButton value="Guardar" style="width:306px" action="#{exerciseController.addExercise()}" onclick="alert ('Solução submetida!');"/>
+                                        <h:inputTextarea style="height:100px; width:300px;  resize: none; " value="#{exerciseController.description}"/>
+                                        <h:commandButton value="Guardar" style="width:306px" action="#{exerciseController.addExercise()}" onclick="alert ('Exercício submetido!');"/>
+                                        <h:commandButton value="Cancelar" action="listClasses" style="margin-left: 60px"/>
 
-                                 </h:form>
+                                </h:form>
 
                             <script type="text/javascript">
                                 function toggle(id) {
