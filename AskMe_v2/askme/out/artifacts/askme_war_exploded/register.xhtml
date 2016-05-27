@@ -13,28 +13,42 @@
         <center>
             <center><br><b><h1>Registo de Utilizador</h1></b></br></center>
             
-            <h:form>
+            <h:form id="newUser">
             <table border="0">
                 <thead>
                     <tr>
-                        <b>Username:</b>&nbsp; <h:inputText value="#{userController.username}"/><br/>
-                        <b>Password:</b>&nbsp; <h:inputSecret value="#{userController.pass}"/><br/>
+                        Username: &nbsp; <h:inputText
+                            value="#{userController.username}"
+                            />
+                        Password: &nbsp; <h:inputSecret
+                           value="#{userController.pass}"/>
                     </tr>
+                <tr>
+                <h:commandButton
+                    value="Guardar"
+                    action="#{userController.addNewUser(pass)}"/>
+                    <h:commandButton value="Cancelar" action="welcome"/>
+                </tr>
                 </thead>
             </table>
             </h:form>
-            
-            <h:form>
-        <table border="0">
+
+            <!--<h:form>-->
+        <!--<table border="0">
             <thead>
                 <tr>
-                    <th><h:commandButton value="Guardar" action="#{userController.addNewUser()}"/></th>
+                   <th><h:commandButton
+                            value="Guardar"
+                            action="#{userController.addNewUser(user1.value)}"/>
+                        <!-<f:param name="user" value="#{username}"/>
+                    </h:commandButton>
+                    </th>
                     <th></th>
                     <th><h:commandButton value="Cancelar" action="welcome"/></th>
                 </tr>
             </thead>
-        </table>
-        </h:form>
+        </table> -->
+        <!--</h:form>-->
         </center>
         </div>
     </h:body>

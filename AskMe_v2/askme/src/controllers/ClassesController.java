@@ -12,7 +12,7 @@ import java.util.*;
 @RequestScoped
 public class ClassesController {
     @EJB
-    ClassesSessionBean classesSessionBean;
+    ClassesSessionBean classesSessionBean = new ClassesSessionBean();
 
     ClassesEntity classesEntity = null;
     List<ClassesEntity> classList = new ArrayList<>();
@@ -22,7 +22,8 @@ public class ClassesController {
 
 
     public List<ClassesEntity> getClassList() {
-        return classesSessionBean.getClasses();
+        classList = classesSessionBean.getClasses();
+        return classList;
     }
 
     public List<ClassesEntity> getClassList(String name) {

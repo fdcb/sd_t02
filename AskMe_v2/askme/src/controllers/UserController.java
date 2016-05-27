@@ -5,10 +5,15 @@ import sessionBeans.UsersSessionBean;
 
 import javax.ejb.EJB;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.component.html.HtmlInputText;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.persistence.Access;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Named (value="userController")
 @RequestScoped
@@ -98,14 +103,18 @@ public class UserController {
     }
 
     public String addNewUser() {
+        if(username == null || pass == null)
+            return "register.xml";
+        Logger logger = Logger.getLogger(getClass().getName());
+        logger.info("Username: " + username);
+        logger.info("Password: " + pass);
         UsersEntity  user = new UsersEntity ();
-        user.setUsername( username );
-        user.setPassword( pass );
+        user.setUsername(username);
+        user.setPassword(pass);
         userSessionBean.addUser(user);
         list = userSessionBean.getUsers();
         return "welcome.xhtml";
     }
-
 
    /* public String getUser(){
         user = userSessionBean.getUsers( username , pass);
@@ -124,7 +133,6 @@ public class UserController {
         id=access.get(0).getNumberAccess();
         id++;
         access.get(0).setNumberAccess(id);
-
         if( !access.isEmpty() ){
             for(int i=0;i<access.size();i++){
                 if(access.get(i).getPassword().equals(pass)){

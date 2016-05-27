@@ -59,11 +59,13 @@
                      <hr class="noscreen" />   
       
                 </div>
-                <h:dataTable value="#{classesControler.classesList}" var="classes" border="1">
+                <h:dataTable value="#{classesController.classList}"
+                             var="classes" border="1">
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Nome das Unidades Curriculares disponíveis"/>
                     </f:facet>
+                    <h:outputText value="#{classes.name}"/>
                 </h:column>
                 </h:dataTable>
                     <p></p><p></p>
