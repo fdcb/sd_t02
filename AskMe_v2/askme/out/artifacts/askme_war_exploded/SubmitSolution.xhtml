@@ -18,8 +18,8 @@
                     </div>
                   
                         <p></p><p></p>
-                        <h2> Unidade Curricular - #{ClassesController.classes.getName()} </h2>
-                        <h2> Exercício - #{exerciseController.exercise.getName()}</h2>
+                        <h2> Unidade Curricular - #{ClassesController.getName()} </h2>
+                        <h2> Exercício - #{exerciseController.exerciseEntity.exerciseId}</h2>
                         <f:view>
                             <h:form >
                                 <h:commandButton value="Submeter Solução" onclick="toggle('form'); return false;" />
@@ -27,9 +27,9 @@
                           <br></br>
                                 <h:form id="form" style="display:none; width: 30%; margin-right: 150px ">
 
-                                        <h:inputTextarea style="height:100px; width:300px;  resize: none; " value="#{solutionController.Description}"/>
+                                        <h:inputTextarea style="height:100px; width:300px;  resize: none; " value="#{solutionController.description}"/>
                                         <h:commandButton value="Guardar" style="width:306px" action="#{solutionController.addSolution()}" onclick="alert ('Solução submetida!');"/>
-
+                                        <h:commandButton value="Cancelar" action="listClasses" style="margin-left: 60px" />
                                  </h:form>
 
                             <script type="text/javascript">

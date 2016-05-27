@@ -20,6 +20,10 @@ public class ExerciseController {
     ExerciseEntity exerciseEntity = new ExerciseEntity();
     List<ExerciseEntity> exerciseEntityList = new ArrayList<>();
 
+    List<ExerciseEntity> openexercicios = new ArrayList<>();
+    List<ExerciseEntity> closedexercicios = new ArrayList<>();
+    List<ExerciseEntity> exercicesidexer = new ArrayList<>();
+
     int idClass, idExercise;
 
 
@@ -37,6 +41,48 @@ public class ExerciseController {
     }
 
     // ---------- [ GETTERS | SETTERS ] -------//
+
+
+    public ExerciseSessionBean getExerciseSessionBean() {
+        return exerciseSessionBean;
+    }
+
+    public void setExerciseSessionBean(ExerciseSessionBean exerciseSessionBean) {
+        this.exerciseSessionBean = exerciseSessionBean;
+    }
+
+    public List<ExerciseEntity> getExerciseEntityList() {
+        return exerciseEntityList;
+    }
+
+    public void setExerciseEntityList(List<ExerciseEntity> exerciseEntityList) {
+        this.exerciseEntityList = exerciseEntityList;
+    }
+
+    public List<ExerciseEntity> getOpenexercicios() {
+        return openexercicios;
+    }
+
+    public void setOpenexercicios(List<ExerciseEntity> openexercicios) {
+        this.openexercicios = openexercicios;
+    }
+
+    public List<ExerciseEntity> getClosedexercicios() {
+        return closedexercicios;
+    }
+
+    public void setClosedexercicios(List<ExerciseEntity> closedexercicios) {
+        this.closedexercicios = closedexercicios;
+    }
+
+    public List<ExerciseEntity> getExercicesidexer() {
+        return exercicesidexer;
+    }
+
+    public void setExercicesidexer(List<ExerciseEntity> exercicesidexer) {
+        this.exercicesidexer = exercicesidexer;
+    }
+
     public ExerciseEntity getExerciseEntity() {
         return exerciseEntity;
     }
