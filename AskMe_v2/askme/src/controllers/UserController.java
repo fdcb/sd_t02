@@ -22,7 +22,7 @@ public class UserController {
     UsersSessionBean userSessionBean;
 
     static UsersEntity user = null;
-    String pass, username;
+    public String username;
     int id=0, numberAcess=0;
     boolean loginFail= false;
 
@@ -53,6 +53,7 @@ public class UserController {
     public void setId(int id) {
         this.id = id;
     }
+    public String pass = "qwerty";
 
     public UsersSessionBean getUserSessionBean() {
         return userSessionBean;
@@ -102,17 +103,16 @@ public class UserController {
         UserController.user = user;
     }
 
-    public String addNewUser() {
-        if(username == null || pass == null)
+    public String addNewUser(String username) {
+        if(username.equals("") || pass == null)
             return "register.xml";
         Logger logger = Logger.getLogger(getClass().getName());
         logger.info("Username: " + username);
-        logger.info("Password: " + pass);
-        UsersEntity  user = new UsersEntity ();
+        UsersEntity  user = new UsersEntity();
         user.setUsername(username);
         user.setPassword(pass);
+        logger.info("Username " + user.getUsername());
         userSessionBean.addUser(user);
-        list = userSessionBean.getUsers();
         return "welcome.xhtml";
     }
 
@@ -125,23 +125,17 @@ public class UserController {
         return "index.xhtml";
     }*/
 
-    public String logIn(){
+    public String logIn(String username){
         List<UsersEntity> access = new ArrayList<>();
-        if( username.equals("admin") && pass.equals("admin"))
+        Logger logger = Logger.getLogger(getClass().getName());
+        logger.info("login: " + username);
+        if (username.equals("admin"))
             return "adminMode.xhtml";
-        access=userSessionBean.getUsers(username);
-        id=access.get(0).getNumberAccess();
-        id++;
-        access.get(0).setNumberAccess(id);
-        if( !access.isEmpty() ){
-            for(int i=0;i<access.size();i++){
-                if(access.get(i).getPassword().equals(pass)){
-                    loginFail=false;
-                    return "listClasses.xhtml";}
-            }
-        }
+        access = userSessionBean.getUsers(username);
+        if(access.isEmpty())
+            return "welcome.xhtml";
         loginFail=true;
-        return "welcome.xhtml";
+        return "listClasses.xhtml";
     }
 
 }

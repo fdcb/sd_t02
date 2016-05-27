@@ -18,15 +18,15 @@
                 <thead>
                     <tr>
                         Username: &nbsp; <h:inputText
-                            value="#{userController.username}"
+                            binding="#{user}"
                             />
                         Password: &nbsp; <h:inputSecret
-                           value="#{userController.pass}"/>
+                            binding="#{password}"/>
                     </tr>
                 <tr>
                 <h:commandButton
                     value="Guardar"
-                    action="#{userController.addNewUser(pass)}"/>
+                    action="#{userController.addNewUser(user.value)}"/>
                     <h:commandButton value="Cancelar" action="welcome"/>
                 </tr>
                 </thead>
