@@ -13,6 +13,12 @@ import javax.persistence.*;
                 name = "Users.findByUsername",
                 query = "SELECT u FROM UsersEntity u " +
                         "WHERE u.username = :username"
+        ),
+        @NamedQuery(
+                name = "Users.findByUsernamePassword",
+                query = "SELECT u FROM UsersEntity u " +
+                        "WHERE u.username = :username " +
+                        "AND u.password = :password"
         )
 })
 public class UsersEntity {

@@ -6,6 +6,8 @@
         <class>entities.ExerciseEntity</class>
         <class>entities.ExerciseStateEntity</class>
         <class>entities.UsersEntity</class>
+        <class>entities.SolutionEntity</class>
+        <class>entities.SolutionStateEntity</class>
         <properties>
             <property name="eclipselink.jdbc.url"
                       value="jdbc:sqlite:C:/T02SD/AskMe.db"/>

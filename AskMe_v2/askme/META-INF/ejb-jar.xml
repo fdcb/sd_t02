@@ -23,5 +23,17 @@
             <session-type>Stateless</session-type>
             <transaction-type>Container</transaction-type>
         </session>
+        <session>
+            <ejb-name>SolutionSessionEJB</ejb-name>
+            <ejb-class>sessionBeans.SolutionSessionBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+        <session>
+            <ejb-name>SolutionStateSessionEJB</ejb-name>
+            <ejb-class>sessionBeans.SolutionStateSessionBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
     </enterprise-beans>
 </ejb-jar>
