@@ -25,10 +25,6 @@ public class ClassesController {
         return classesSessionBean.getClasses();
     }
 
-    public List<ClassesEntity> getClassList(int class_id) {
-        return classesSessionBean.getClasses(class_id);
-    }
-
     public List<ClassesEntity> getClassList(String name) {
         return classesSessionBean.getClasses(name);
     }
@@ -67,7 +63,7 @@ public class ClassesController {
     }
 
     public String getClassFromDB(int idClass) {
-        classesEntity = classesSessionBean.getClassesByID( idClass );
+        classesEntity = classesSessionBean.getClasses(idClass);
         return "listClasses.xhtml";
     }
 
