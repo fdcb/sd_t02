@@ -6,18 +6,14 @@
     <h:head>
         <link href="css/style_askMe_2.css" rel="stylesheet" type="text/css"/>
         <title>AskMe</title>
-        
     </h:head>
     <h:body>
-
-
         <center>
             <div class="maindiv" style="">
                     <div class="header" style="">
                          <h1 id="logo"><a href="#" title="#">AskMe<span>.com</span></a> </h1>
                          <hr class="noscreen" />   
                     </div>
-                   
                         <p></p><p></p>
                         <h2> Unidade Curricular - #{classesController.classes.getName()} </h2>
                         <f:view>
@@ -30,9 +26,7 @@
                                         <h:inputTextarea style="height:100px; width:300px;  resize: none; " value="#{exerciseController.description}"/>
                                         <h:commandButton value="Guardar" style="width:306px" action="#{exerciseController.addExercise()}" onclick="alert ('Exercício submetido!');"/>
                                         <h:commandButton value="Cancelar" action="listClasses" style="margin-left: 60px"/>
-
                                 </h:form>
-
                             <script type="text/javascript">
                                 function toggle(id) {
                                   var element = document.getElementById(id);

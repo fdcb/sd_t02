@@ -9,55 +9,36 @@
         <title>AskMe</title>
     </h:head>
     <h:body>
-
         <h:form>
             <div class="maindiv1">
                 <div class="acessos">
-
                     <center><h2>Informação adicional</h2></center>
                     <hr class="noscreen" />
                     <h:panelGrid columns="2">
-                        <h:outputLabel value="Unidade Curricular: "/>
-                        <h:outputLabel value="#{exerciseController.exerciseEntity.classId}"/>
-                        <h:outputLabel value="Exercício: "/>
-                        <h:outputLabel value="#{exerciseController.exerciseEntity.exerciseId}"/>
-                        <h:commandButton style=" marmargin-top: 10px" value="Classificar" action="classifySolution" />
-                        <h:commandButton style=" marmargin-top: 10px" value="Consultas" action="consult" />
-
+                        <h:outputLabel value="Unidades Curriculares: "/>
+                        <h:outputLabel
+                                value="#{classesController.getClassesNumber()}"/>
                         <br/>
                     </h:panelGrid>
-
-
                 </div>
-
             </div>
         </h:form>
-
         <h:form>
             <div class="maindiv3">
                 <div class="acessos">
-
                     <center><h2>Utilizador Online</h2></center>
                     <hr class="noscreen" />
                     <h3>
                         #{userController.username}
-
                     </h3>
-
-
                 </div>
-
             </div>
         </h:form>
-
         <center>
-           
             <div class="maindiv" style="">
                 <div class="header" style="">
-                    
                      <h1 id="logo"><a href="#" title="#">AskMe<span>.com</span></a> </h1>
                      <hr class="noscreen" />   
-      
                 </div>
                 <h:dataTable value="#{classesController.classList}"
                              var="classes" border="1">
@@ -65,26 +46,25 @@
                     <f:facet name="header">
                         <h:outputText value="Nome das Unidades Curriculares disponíveis"/>
                     </f:facet>
-                    <h:outputText value="#{classes.name}"/>
+                    <h:commandButton value="#{classes.name}"
+                            action="#{classesController.goToExerciseList(classes.name)}"
+                            onclick="alert('alooooooooo #{classes.name}');"/>
                 </h:column>
                 </h:dataTable>
                     <p></p><p></p>
                     <f:view>
                         <h:form >
                             <h:commandButton value="Criar Unidade Curricular" onclick="toggle('form'); return false;" />
-                            <h:commandButton value="Submeter Exercício" action="SubmitExercise" />
-                            <h:commandButton value="Submeter Solução" action="SubmitSolution" />
                         </h:form>
-                      
                       <br></br>
                       
                             <h:form id="form" style="display:none; width: 30%; margin-right: 150px ">
-                          
-                                    <h:inputTextarea style="height:60px; width:300px;  resize: none; " value="#{classesController.name}"/>
-                                    <h:commandButton value="Guardar" style="width:306px" action="#{classesController.addClasses()}" onclick="alert ('Unidade Curricular #{classesController.name} criada!');"/>
-                               
+                                    <h:inputTextarea style="height:60px; width:300px;
+                                     resize: none; " binding="#{newUC}"/>
+                                    <h:commandButton value="Guardar"
+                                                     style="width:306px"
+                                                     action="#{classesController.addClasses(newUC.value)}" onclick="alert ('Unidade Curricular #{classesController.name} criada!');"/>
                              </h:form>
-                   
                         <script type="text/javascript">
                             function toggle(id) {
                               var element = document.getElementById(id);

@@ -50,4 +50,14 @@ public class UsersSessionBean {
                 setParameter("username", username).
                 setParameter("password", password).getResultList();
     }
+
+    public void changeAccessNumber(UsersEntity usersEntity){
+        EntityManager entityManager =  getEntityManagerFactory()
+                .createEntityManager();
+        UsersEntity user = entityManager.find(UsersEntity.class, usersEntity
+                .getUsername());
+        entityManager.getTransaction().begin();
+        user.setNumberAccess(user.getNumberAccess() + 1);
+        entityManager.getTransaction().commit();
+    }
 }
