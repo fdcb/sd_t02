@@ -7,6 +7,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Named;
 import java.util.*;
+import java.util.logging.Logger;
 
 @Named (value="classesController")
 @RequestScoped
@@ -17,26 +18,13 @@ public class ClassesController {
     ClassesEntity classesEntity = null;
     List<ClassesEntity> classList = new ArrayList<>();
 
-    int idClass;
-    String name;
+    public static int idClass;
+    public static String name;
 
 
     public List<ClassesEntity> getClassList() {
         classList = classesSessionBean.getClasses();
         return classList;
-    }
-
-    public List<ClassesEntity> getClassList(String name) {
-        return classesSessionBean.getClasses(name);
-    }
-
-
-    public int getIdClass() {
-        return idClass;
-    }
-
-    public void setIdClass(int idClass) {
-        this.idClass = idClass;
     }
 
     public String getName() {
@@ -47,26 +35,29 @@ public class ClassesController {
         this.name = name;
     }
 
-    public ClassesEntity getClassesEntity() {
-        return classesEntity;
-    }
-
-    public void setClassesEntity(ClassesEntity classesEntity) {
-        this.classesEntity = classesEntity;
-    }
-
-    public String addClasses(){
+    public String addClasses(String name){
         classesEntity = new ClassesEntity();
-        classesEntity.setClassId( idClass );
-        classesEntity.setName( name );
-        classesSessionBean.addClass( classesEntity);
-        return "welcome.xhtml";
-    }
-
-    public String getClassFromDB(int idClass) {
-        classesEntity = classesSessionBean.getClasses(idClass);
+        this.name = name;
+        List<ClassesEntity> classesEntities = classesSessionBean.getClasses();
+        for(int i = 0; i < classesEntities.size(); i++)
+            if(classesEntities.get(i).getName().equals(name))
+                return "listClasses.xhtml";
+        classesEntity.setClassId(classesEntities.size() + 1);
+        idClass = classesEntity.getClassId();
+        classesEntity.setName(name);
+        classesSessionBean.addClass(classesEntity);
         return "listClasses.xhtml";
     }
 
+    public int getClassesNumber(){
+        List<ClassesEntity> classesEntities = classesSessionBean.getClasses();
+        return classesEntities.size();
+    }
 
+    public String goToExerciseList(String className){
+        Logger log = Logger.getLogger(ClassesController.class.getName());
+        log.info("ClassName: " + className);
+        this.name = className;
+        return "SubmitExercise.xhtml";
+    }
 }
