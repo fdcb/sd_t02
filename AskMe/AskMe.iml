@@ -7,6 +7,7 @@
         <setting name="provider-name" value="" />
         <datasource-mapping>
           <factory-entry name="NewPersistenceUnit" value="cc1529e6-baa3-48ed-b5d0-5ee08e7852bb" />
+          <factory-entry name="newpersistenceunit" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/META-INF/persistence.xml" />
       </configuration>
@@ -44,5 +45,6 @@
     <orderEntry type="library" name="sqlite-jdbc-3.8.11.2" level="project" />
     <orderEntry type="library" name="sqlite-dialect-0.1.0" level="project" />
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
+    <orderEntry type="library" name="JBoss Weld-2.0.3" level="project" />
   </component>
 </module>
