@@ -1,87 +1,103 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      >
-    <h:head>
-        <link href="css/style_askMe_2.css" rel="stylesheet" type="text/css"/>
-        <title>AskMe</title>
-    </h:head>
-    <h:body>
-        <h:form>
-            <div class="maindiv1">
-                <div class="acessos">
-                    <center><h2>Informação adicional</h2></center>
-                    <hr class="noscreen" />
-                    <h:panelGrid columns="2">
-                        <h:outputLabel value="Unidades Curriculares: "/>
-                        <h:outputLabel
-                                value="#{classesController.getClassesNumber()}"/>
-                        <br/>
-                    </h:panelGrid>
-                </div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns = "http://www.w3.org/1999/xhtml"
+      xmlns:h = "http://xmlns.jcp.org/jsf/html"
+      xmlns:f = "http://xmlns.jcp.org/jsf/core"
+>
+<h:head>
+    <link href = "css/style_askMe_2.css"
+          rel = "stylesheet"
+          type = "text/css"/>
+    <title>AskMe - Classes</title>
+</h:head>
+<h:body>
+    <h:form>
+        <div class = "maindiv1">
+            <div class = "acessos">
+                <center><h2>Informação adicional</h2></center>
+                <hr class = "noscreen"/>
+                <h:panelGrid columns = "2">
+                    <h:outputLabel value = "Unidades Curriculares: "/>
+                    <h:outputLabel
+                            value = "#{classesController.getClassesNumber()}"/>
+                    <br/>
+                </h:panelGrid>
             </div>
-        </h:form>
-        <h:form>
-            <div class="maindiv3">
-                <div class="acessos">
-                    <center><h2>Utilizador Online</h2></center>
-                    <hr class="noscreen" />
-                    <h3>
-                        #{userController.username}
-                    </h3>
-                </div>
+        </div>
+    </h:form>
+    <h:form>
+        <div class = "maindiv3">
+            <div class = "acessos">
+                <center><h2>Utilizador Online</h2></center>
+                <hr class = "noscreen"/>
+                <h3>
+                    #{userController.username}
+                </h3>
             </div>
-        </h:form>
-        <center>
-            <div class="maindiv" style="">
-                <div class="header" style="">
-                     <h1 id="logo"><a href="#" title="#">AskMe<span>.com</span></a> </h1>
-                     <hr class="noscreen" />   
-                </div>
-                <h:form
-                        rendered="#{not empty classesController.classList}">
-                <h:dataTable value="#{classesController.classList}"
-                             var="classes" border="1">
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Nome das Unidades Curriculares disponíveis"/>
-                    </f:facet>
-                    <h:commandButton value="#{classes.name}"
-                            action="#{classesController.goToExerciseList(classes.name)}"
-                            onclick="alert('alooooooooo #{classes.name}');"/>
-                </h:column>
+        </div>
+    </h:form>
+    <center>
+        <div class = "maindiv"
+             style = "">
+            <div class = "header"
+                 style = "">
+                <h1 id = "logo"><a href = "#"
+                                   title = "#">AskMe<span>.com</span></a>
+                </h1>
+                <hr class = "noscreen"/>
+            </div>
+            <h:form
+                    rendered = "#{not empty classesController.classList}">
+                <h:dataTable value = "#{classesController.classList}"
+                             var = "classesList"
+                             border = "1">
+                    <h:column>
+                        <f:facet name = "header">
+                            <h:outputText
+                                    value = "Nome das Unidades
+                                            Curriculares disponíveis"/>
+                        </f:facet>
+                        <h:commandButton value = "#{classesList.name}"
+                                         action = "#{classesController.
+                                                goToExerciseList(classesList)}"/>
+                    </h:column>
                 </h:dataTable>
+            </h:form>
+            <f:view>
+                <h:form>
+                    <h:commandButton value = "Criar Unidade Curricular"
+                                     onclick = "toggle('form'); return false;"/>
                 </h:form>
-                    <f:view>
-                        <h:form >
-                            <h:commandButton value="Criar Unidade Curricular" onclick="toggle('form'); return false;" />
-                        </h:form>
-                      <br></br>
-                      
-                            <h:form id="form" style="display:none; width: 30%; margin-right: 150px ">
-                                    <h:inputTextarea style="height:60px; width:300px;
-                                     resize: none; " binding="#{newUC}"/>
-                                    <h:commandButton value="Guardar"
-                                                     style="width:306px"
-                                                     action="#{classesController.addClasses(newUC.value)}" onclick="alert ('Unidade Curricular #{classesController.name} criada!');"/>
-                             </h:form>
-                        <script type="text/javascript">
-                            function toggle(id) {
-                              var element = document.getElementById(id);
-                              if(element.style.display == 'block') {
-                                element.style.display = 'none';
-                              } else {
-                                element.style.display = 'block';
-                              }
-                            }
-                      </script>
-                    </f:view>
-            </div>
-        </center>
-            
-     
-    </h:body>
+                <h:form id = "form"
+                        style = "display:none; width: 30%;
+                                margin-right: 150px ">
+                    <!--
+                    <h:inputTextarea style = "height:60px; width:300px;
+                                     resize: none; "
+                                     binding = "#{newUC}"/> -->
+                    <p>Name: <h:inputText
+                            value="#{classesController.classes.name}"/></p>
+                    <h:commandButton value = "Guardar"
+                                     style = "width:306px"
+                                     action = "#{classesController.addClasses()}"
+                                     onclick = "alert('Unidade Curricular ' +
+                                           '#{classesController.classes.name}' +
+                                           ' criada!');"/>
+                </h:form>
+                <script type = "text/javascript">
+                    function toggle(id) {
+                        var element = document.getElementById(id);
+                        if (element.style.display == 'block') {
+                            element.style.display = 'none';
+                        } else {
+                            element.style.display = 'block';
+                        }
+                    }
+                </script>
+            </f:view>
+        </div>
+    </center>
+</h:body>
 </html>
 

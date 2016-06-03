@@ -3,54 +3,54 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <h:head>
-        <link href="css/style_askMe_1.css" rel="stylesheet" type="text/css"/>
-        <title>AskMe -  Registo </title>
-    </h:head>
-    <h:body>
-        
-        <div class="maindiv" style="">
+<h:head>
+    <link href="css/style_askMe_1.css" rel="stylesheet" type="text/css"/>
+    <title>AskMe -  Registo </title>
+</h:head>
+<h:body>
+
+    <div class="maindiv" style="">
         <center>
             <center><br><b><h1>Registo de Utilizador</h1></b></br></center>
-            
+
             <h:form id="newUser">
-            <table border="0">
-                <thead>
+                <table border="0">
+                    <thead>
                     <tr>
                         Username: &nbsp; <h:inputText
                             binding="#{user}"
-                            />
+                    />
                         Password: &nbsp; <h:inputSecret
                             binding="#{password}"/>
                     </tr>
-                <tr>
-                <h:commandButton
-                    value="Guardar"
-                    action="#{userController.addNewUser(user.value)}"/>
-                    <h:commandButton value="Cancelar" action="welcome"/>
-                </tr>
-                </thead>
-            </table>
+                    <tr>
+                        <h:commandButton
+                                value="Guardar"
+                                action="#{userController.addNewUser(user.value)}"/>
+                        <h:commandButton value="Cancelar" action="welcome"/>
+                    </tr>
+                    </thead>
+                </table>
             </h:form>
 
             <!--<h:form>-->
-        <!--<table border="0">
-            <thead>
-                <tr>
-                   <th><h:commandButton
-                            value="Guardar"
-                            action="#{userController.addNewUser(user1.value)}"/>
-                        <!-<f:param name="user" value="#{username}"/>
-                    </h:commandButton>
-                    </th>
-                    <th></th>
-                    <th><h:commandButton value="Cancelar" action="welcome"/></th>
-                </tr>
-            </thead>
-        </table> -->
-        <!--</h:form>-->
+            <!--<table border="0">
+                <thead>
+                    <tr>
+                       <th><h:commandButton
+                                value="Guardar"
+                                action="#{userController.addNewUser(user1.value)}"/>
+                            <!-<f:param name="user" value="#{username}"/>
+                        </h:commandButton>
+                        </th>
+                        <th></th>
+                        <th><h:commandButton value="Cancelar" action="welcome"/></th>
+                    </tr>
+                </thead>
+            </table> -->
+            <!--</h:form>-->
         </center>
-        </div>
-    </h:body>
+    </div>
+</h:body>
 </html>
 
