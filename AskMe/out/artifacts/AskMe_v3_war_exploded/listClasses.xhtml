@@ -40,6 +40,8 @@
                      <h1 id="logo"><a href="#" title="#">AskMe<span>.com</span></a> </h1>
                      <hr class="noscreen" />   
                 </div>
+                <h:form
+                        rendered="#{not empty classesController.classList}">
                 <h:dataTable value="#{classesController.classList}"
                              var="classes" border="1">
                 <h:column>
@@ -51,7 +53,7 @@
                             onclick="alert('alooooooooo #{classes.name}');"/>
                 </h:column>
                 </h:dataTable>
-                    <p></p><p></p>
+                </h:form>
                     <f:view>
                         <h:form >
                             <h:commandButton value="Criar Unidade Curricular" onclick="toggle('form'); return false;" />
