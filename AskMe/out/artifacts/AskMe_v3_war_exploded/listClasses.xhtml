@@ -34,54 +34,13 @@
                 <h3>
                     #{userController.username}
                 </h3>
+                <h:commandButton style="margin-top: 5px"
+                                 value="LogOut"
+                                 onclick="alert('A sair do AskMe ');"
+                                 action="#{userController.resetUser}"/>
+
+
             </div>
-<<<<<<< HEAD
-        </h:form>
-        <center>
-            <div class="maindiv" style="">
-                <div class="header" style="">
-                     <h1 id="logo"><a href="#" title="#">AskMe<span>.com</span></a> </h1>
-                     <hr class="noscreen" />   
-                </div>
-                <h:form
-                        rendered="#{not empty classesController.classList}">
-                <h:dataTable value="#{classesController.classList}"
-                             var="classes" border="1">
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Nome das Unidades Curriculares disponíveis"/>
-                    </f:facet>
-                    <h:commandButton value="#{classes.name}"
-                            action="#{classesController.goToExerciseList(classes.name)}"
-                            onclick="alert('alooooooooo #{classes.name}');"/>
-                </h:column>
-                </h:dataTable>
-                </h:form>
-                    <f:view>
-                        <h:form >
-                            <h:commandButton value="Criar Unidade Curricular" onclick="toggle('form'); return false;" />
-                        </h:form>
-                      <br></br>
-                      
-                            <h:form id="form" style="display:none; width: 30%; margin-right: 150px ">
-                                    <h:inputTextarea style="height:60px; width:300px;
-                                     resize: none; " binding="#{newUC}"/>
-                                    <h:commandButton value="Guardar"
-                                                     style="width:306px"
-                                                     action="#{classesController.addClasses(newUC.value)}" onclick="alert ('Unidade Curricular #{classesController.name} criada!');"/>
-                             </h:form>
-                        <script type="text/javascript">
-                            function toggle(id) {
-                              var element = document.getElementById(id);
-                              if(element.style.display == 'block') {
-                                element.style.display = 'none';
-                              } else {
-                                element.style.display = 'block';
-                              }
-                            }
-                      </script>
-                    </f:view>
-=======
         </div>
     </h:form>
     <center>
@@ -93,18 +52,16 @@
                                    title = "#">AskMe<span>.com</span></a>
                 </h1>
                 <hr class = "noscreen"/>
->>>>>>> b54c827d7320d2e5526ef6f1d07d1d666fab40bc
             </div>
             <h:form
                     rendered = "#{not empty classesController.classList}">
-                <h:dataTable value = "#{classesController.classList}"
+                <h:dataTable styleClass="table-fill" value =
+                        "#{classesController.classList}"
                              var = "classesList"
                              border = "1">
                     <h:column>
                         <f:facet name = "header">
-                            <h:outputText
-                                    value = "Nome das Unidades
-                                            Curriculares disponíveis"/>
+                            <h:outputText value = "Unidades Curriculares "/>
                         </f:facet>
                         <h:commandButton value = "#{classesList.name}"
                                          action = "#{classesController.
@@ -112,9 +69,13 @@
                     </h:column>
                 </h:dataTable>
             </h:form>
+            <h:panelGroup rendered="#{empty classesController.classList}">
+                <p>Não existem Unidade Curriculares</p>
+            </h:panelGroup>
             <f:view>
                 <h:form>
-                    <h:commandButton value = "Criar Unidade Curricular"
+                    <h:commandButton style="margin-top: 30px" value =
+                            "Criar Unidade Curricular"
                                      onclick = "toggle('form'); return false;"/>
                 </h:form>
                 <h:form id = "form"
