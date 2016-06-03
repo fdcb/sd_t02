@@ -6,15 +6,20 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+import java.util.HashMap;
 import java.util.List;
 
 @Stateless(name = "UsersSessionEJB")
 public class UsersSessionBean {
 
-    private EntityManagerFactory entityManagerFactory = Persistence
-            .createEntityManagerFactory("newpersistenceunit");
+    private EntityManagerFactory entityManagerFactory;
 
     private EntityManagerFactory getEntityManagerFactory(){
+        HashMap<String, String> properties = new HashMap<>();
+        properties.put("ConnectionDriverName", "org.sqlite.JDBC");
+        entityManagerFactory = Persistence.createEntityManagerFactory
+                ("newpersistenceunit",properties);
         return entityManagerFactory;
     }
 

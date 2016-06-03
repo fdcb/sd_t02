@@ -18,7 +18,7 @@ public class UserController {
     public static String username = "cenas";
     public int id;
 
-    List<Users> list = new ArrayList<>();
+    private List<Users> list = new ArrayList<>();
 
     public int getId() {
         return id;
