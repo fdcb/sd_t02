@@ -48,5 +48,6 @@
     <orderEntry type="library" name="sqlite-dialect-0.1.0" level="project" />
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="javax.inject" level="project" />
+    <orderEntry type="library" name="JBoss Weld-2.0.3" level="project" />
   </component>
 </module>
