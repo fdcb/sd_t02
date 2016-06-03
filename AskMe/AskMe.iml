@@ -7,13 +7,16 @@
         <setting name="provider-name" value="" />
         <datasource-mapping>
           <factory-entry name="NewPersistenceUnit" value="cc1529e6-baa3-48ed-b5d0-5ee08e7852bb" />
-          <factory-entry name="newpersistenceunit" />
+          <factory-entry name="newpersistenceunit" value="cc1529e6-baa3-48ed-b5d0-5ee08e7852bb" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/META-INF/persistence.xml" />
       </configuration>
     </facet>
     <facet type="ejb" name="EJB">
       <configuration>
+        <descriptors>
+          <deploymentDescriptor name="ejb-jar.xml" url="file://$MODULE_DIR$/META-INF/ejb-jar.xml" />
+        </descriptors>
         <ejbRoots>
           <root url="file://$MODULE_DIR$/src" />
         </ejbRoots>

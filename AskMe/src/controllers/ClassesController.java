@@ -24,7 +24,6 @@ public class ClassesController implements Serializable {
     private Classes classes = new Classes();
 
     public static int idClass;
-    public static String name;
 
     public List<Classes> getClassList() {
         return classList;
@@ -54,7 +53,7 @@ public class ClassesController implements Serializable {
         return classesEntities.size();
     }
 
-    public String goToExerciseList(){
+    public String goToExerciseList(Classes classes){
         Logger log = Logger.getLogger(ClassesController.class.getName());
         log.info("ClassName: " + classes.getName());
         return "SubmitExercise.xhtml";
