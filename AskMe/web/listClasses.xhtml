@@ -34,6 +34,12 @@
                 <h3>
                     #{userController.username}
                 </h3>
+                <h:commandButton style="margin-top: 5px"
+                                 value="LogOut"
+                                 onclick="alert('A sair do AskMe ');"
+                                 action="#{userController.resetUser}"/>
+
+
             </div>
         </div>
     </h:form>
@@ -49,14 +55,13 @@
             </div>
             <h:form
                     rendered = "#{not empty classesController.classList}">
-                <h:dataTable value = "#{classesController.classList}"
+                <h:dataTable styleClass="table-fill" value =
+                        "#{classesController.classList}"
                              var = "classesList"
                              border = "1">
                     <h:column>
                         <f:facet name = "header">
-                            <h:outputText
-                                    value = "Nome das Unidades
-                                            Curriculares disponíveis"/>
+                            <h:outputText value = "Unidades Curriculares "/>
                         </f:facet>
                         <h:commandButton value = "#{classesList.name}"
                                          action = "#{classesController.
@@ -64,9 +69,13 @@
                     </h:column>
                 </h:dataTable>
             </h:form>
+            <h:panelGroup rendered="#{empty classesController.classList}">
+                <p>Não existem Unidade Curriculares</p>
+            </h:panelGroup>
             <f:view>
                 <h:form>
-                    <h:commandButton value = "Criar Unidade Curricular"
+                    <h:commandButton style="margin-top: 30px" value =
+                            "Criar Unidade Curricular"
                                      onclick = "toggle('form'); return false;"/>
                 </h:form>
                 <h:form id = "form"

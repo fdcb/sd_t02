@@ -15,7 +15,7 @@ public class UserController {
     @EJB
     UsersSessionBean userSessionBean;
 
-    public static String username = "cenas";
+    public static String username;
     public int id;
 
     private List<Users> list = new ArrayList<>();
@@ -27,6 +27,7 @@ public class UserController {
     public void setId(int id) {
         this.id = id;
     }
+
     public String pass = "qwerty";
 
     public List<Users> getList() {
@@ -46,21 +47,21 @@ public class UserController {
     }
 
     public String addNewUser(String username) {
-        if(username.equals("") || pass == null)
+        if (username.equals("") || pass == null)
             return "register.xml";
         List<Users> usersEntities = userSessionBean.getUsers();
-        for(int i = 0; i < usersEntities.size(); i++)
-            if(usersEntities.get(i).getUsername().equals(username))
+        for (int i = 0; i < usersEntities.size(); i++)
+            if (usersEntities.get(i).getUsername().equals(username))
                 return "register.xml";
         this.username = username;
-        Users  user = new Users();
+        Users user = new Users();
         user.setUsername(username);
         user.setPassword(pass);
         userSessionBean.addUsers(user);
         return "listClasses.xhtml";
     }
 
-    public String logIn(String username){
+    public String logIn(String username) {
         if (username.equals("admin")) {
             Users usersEntity = new Users();
             usersEntity.setUsername("admin");
@@ -68,10 +69,15 @@ public class UserController {
             return "adminMode.xhtml";
         }
         List<Users> usersEntities = userSessionBean.getUsers(username);
-        if(usersEntities.isEmpty())
+        if (usersEntities.isEmpty())
             return "welcome.xhtml";
         this.username = username;
         userSessionBean.changeAccessNumber(usersEntities.get(0));
         return "listClasses.xhtml";
+    }
+
+    public String resetUser(){
+        username="";
+        return "welcome.xhtml";
     }
 }
