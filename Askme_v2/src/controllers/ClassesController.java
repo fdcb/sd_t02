@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 
 @Named (value="classesController")
 @ManagedBean
-@ViewScoped
+@RequestScoped
 public class ClassesController implements Serializable {
     @EJB
     ClassesSessionBean classesSessionBean = new ClassesSessionBean();
@@ -42,14 +42,11 @@ public class ClassesController implements Serializable {
                 .getName());
         if(!classesList1.isEmpty())
             return "listClasses.xhtml";
-        Logger log = Logger.getLogger(ClassesController.class.getName());
-        if(getClasses().getName() == null) {
-            log.info("ClassName: nope aint working");
+        if(classes.getName() == null) {
             return "listClasses.xhtml";
         }
-        log.info("ClassName: " + getClasses().getName());
-        getClasses().setClassId(classList.size() + 1);
-        classesSessionBean.addClass(getClasses());
+        classes.setClassId(classList.size() + 1);
+        classesSessionBean.addClass(classes);
         return "listClasses.xhtml";
     }
 
@@ -61,6 +58,9 @@ public class ClassesController implements Serializable {
     public String goToExerciseList(Classes classes){
         Logger log = Logger.getLogger(ClassesController.class.getName());
         log.info("ClassName: " + classes.getName());
+        this.classes.setName(classes.getName());
+        this.classes.setClassId(classes.getClassId());
+        log.info("ClassName: " + classes.getClassId());
         return "SubmitExercise.xhtml";
     }
 
