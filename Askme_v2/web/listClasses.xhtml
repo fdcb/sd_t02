@@ -66,7 +66,9 @@
                         <h:commandButton styleClass="input1" value =
                                 "#{classesList.name}"
                                          action = "#{classesController.
-                                                goToExerciseList(classesList)}"/>
+                                                goToExerciseList(classesList)}">
+                        <f:param name = "classname" value="#{classesList.name}"/>
+                    </h:commandButton>
                     </h:column>
                 </h:dataTable>
             </h:form>
@@ -93,7 +95,8 @@
                                              (name.value)}"
                                      onclick = "alert('Unidade Curricular ' +
                                            '#{name.value}' +
-                                           ' criada!');"/>
+                                           ' criada!');">
+                    </h:commandButton>
                 </h:form>
                 <script type = "text/javascript">
                     function toggle(id) {
