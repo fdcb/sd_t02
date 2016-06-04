@@ -6,14 +6,13 @@ import sessionBeans.ClassesSessionBean;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.*;
 import java.util.logging.Logger;
 
-@Named (value="classesController")
+@Named(value="classesController")
 @ManagedBean
 @ViewScoped
 public class ClassesController implements Serializable {
@@ -22,8 +21,6 @@ public class ClassesController implements Serializable {
 
     private List<Classes> classList;
     private Classes classes = new Classes();
-
-    public static int idClass;
 
     public List<Classes> getClassList() {
         return classList;
@@ -43,6 +40,8 @@ public class ClassesController implements Serializable {
                 .getName());
         if(!classesList1.isEmpty())
             return "listClasses.xhtml";
+        Logger log = Logger.getLogger(ClassesController.class.getName());
+        log.info("ClassName: " + classes.getName());
         classes.setClassId(classList.size() + 1);
         classesSessionBean.addClass(classes);
         return "listClasses.xhtml";
@@ -58,6 +57,4 @@ public class ClassesController implements Serializable {
         log.info("ClassName: " + classes.getName());
         return "SubmitExercise.xhtml";
     }
-
-
 }
