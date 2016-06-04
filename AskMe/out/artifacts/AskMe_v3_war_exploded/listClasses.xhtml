@@ -31,15 +31,17 @@
             <div class = "acessos">
                 <center><h2>Utilizador Online</h2></center>
                 <hr class = "noscreen"/>
+<<<<<<< HEAD
                 <h3 style="text-align: center">
+=======
+                <h3 style = "text-align: center">
+>>>>>>> ea7593c58e68e612988c166e7ed1da6566a62f3b
                     #{userController.username}
                 </h3>
-                <h:commandButton style="margin-top: 5px"
-                                 value="LogOut"
-                                 onclick="alert('A sair do AskMe ');"
-                                 action="#{userController.resetUser}"/>
-
-
+                <h:commandButton style = "margin-top: 5px"
+                                 value = "LogOut"
+                                 onclick = "alert('A sair do AskMe');"
+                                 action = "#{userController.resetUser}"/>
             </div>
         </div>
     </h:form>
@@ -55,39 +57,38 @@
             </div>
             <h:form
                     rendered = "#{not empty classesController.classList}">
-                <h:dataTable styleClass="table-fill" value =
-                        "#{classesController.classList}"
+                <h:dataTable styleClass = "table-fill"
+                             value =
+                                     "#{classesController.classList}"
                              var = "classesList"
                              border = "1">
                     <h:column>
                         <f:facet name = "header">
                             <h:outputText value = "Unidades Curriculares "/>
                         </f:facet>
-                        <h:commandButton styleClass="input1" value =
-                                "#{classesList.name}"
+                        <h:commandButton styleClass = "input1"
+                                         value =
+                                                 "#{classesList.name}"
                                          action = "#{classesController.
                                                 goToExerciseList(classesList)}"/>
                     </h:column>
                 </h:dataTable>
             </h:form>
-            <h:panelGroup rendered="#{empty classesController.classList}">
-                <p>Não existem Unidade Curriculares</p>
+            <h:panelGroup rendered = "#{empty classesController.classList}">
+                <p>Não existem Unidades Curriculares</p>
             </h:panelGroup>
             <f:view>
                 <h:form>
-                    <h:commandButton style="margin-top: 30px" value =
-                            "Criar Unidade Curricular"
+                    <h:commandButton style = "margin-top: 30px"
+                                     value =
+                                             "Criar Unidade Curricular"
                                      onclick = "toggle('form'); return false;"/>
                 </h:form>
                 <h:form id = "form"
                         style = "display:none; width: 30%;
                                 margin-right: 150px ">
-                    <!--
-                    <h:inputTextarea style = "height:60px; width:300px;
-                                     resize: none; "
-                                     binding = "#{newUC}"/> -->
                     <p>Name: <h:inputText
-                            value="#{classesController.classes.name}"/></p>
+                            value = "#{classesController.classes.name}"/></p>
                     <h:commandButton value = "Guardar"
                                      style = "width:306px"
                                      action = "#{classesController.addClasses()}"

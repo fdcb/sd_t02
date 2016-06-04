@@ -13,14 +13,11 @@ import java.util.List;
 @Stateless(name = "UsersSessionEJB")
 public class UsersSessionBean {
 
-    private EntityManagerFactory entityManagerFactory;
-
     private EntityManagerFactory getEntityManagerFactory(){
         HashMap<String, String> properties = new HashMap<>();
         properties.put("ConnectionDriverName", "org.sqlite.JDBC");
-        entityManagerFactory = Persistence.createEntityManagerFactory
-                ("newpersistenceunit",properties);
-        return entityManagerFactory;
+        return Persistence.createEntityManagerFactory
+                ("newpersistenceunit", properties);
     }
 
     @SuppressWarnings("unchecked")
