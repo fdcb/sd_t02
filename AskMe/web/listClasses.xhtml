@@ -31,7 +31,7 @@
             <div class = "acessos">
                 <center><h2>Utilizador Online</h2></center>
                 <hr class = "noscreen"/>
-                <h3>
+                <h3 style="text-align: center">
                     #{userController.username}
                 </h3>
                 <h:commandButton style="margin-top: 5px"
@@ -63,7 +63,8 @@
                         <f:facet name = "header">
                             <h:outputText value = "Unidades Curriculares "/>
                         </f:facet>
-                        <h:commandButton value = "#{classesList.name}"
+                        <h:commandButton styleClass="input1" value =
+                                "#{classesList.name}"
                                          action = "#{classesController.
                                                 goToExerciseList(classesList)}"/>
                     </h:column>
