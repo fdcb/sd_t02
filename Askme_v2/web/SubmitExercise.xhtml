@@ -14,9 +14,7 @@
                          <h1 id="logo"><a href="#" title="#">AskMe<span>.com</span></a> </h1>
                          <hr class="noscreen" />   
                     </div>
-                        <p></p><p></p>
-                        <h2> Unidade Curricular -
-                        #{classesController.classesNumber} </h2>
+                        <h2> #{exerciseController.classname} </h2>
                         <h:form
                         rendered = "#{not empty classesController.classList}">
                     <h:dataTable styleClass="table-fill" value =
@@ -42,10 +40,9 @@
                                         onclick="toggle('form'); return
                                         false;" />
                             </h:form>
-                          <br></br>
                                 <h:form id="form" style="display:none; width: 30%; margin-right: 150px ">
-
-                                        <h:inputTextarea style="height:100px; width:300px;  resize: none; " value="#{exerciseController.description}"/>
+                                        <h:inputTextarea
+                                                style="height:100px; width:300px;  resize: none; " binding = "#{description}"/>
                                         <h:commandButton value="Guardar" style="width:306px" action="#{exerciseController.addExercise()}" onclick="alert ('Exercício submetido!');"/>
                                         <h:commandButton value="Cancelar" action="listClasses" style="margin-left: 85px; margin-top: 5px"/>
                                 </h:form>
