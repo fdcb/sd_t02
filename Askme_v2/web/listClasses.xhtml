@@ -34,10 +34,19 @@
                 <h3 style="text-align: center">
                     #{userController.username}
                 </h3>
+<<<<<<< HEAD
+                <center>
+                    <h:commandButton style="margin-top: 5px; width: 65px"
+                                     value="LogOut"
+                                     onclick="alert('A sair do AskMe ');"
+                                     action="#{userController.resetUser}"/>
+                </center>
+=======
                 <h:commandButton style="margin-top: 5px"
                                  value="LogOut"
                                  onclick="alert('A sair do AskMe');"
                                  action="#{userController.resetUser}"/>
+>>>>>>> ea7593c58e68e612988c166e7ed1da6566a62f3b
             </div>
         </div>
     </h:form>
@@ -69,15 +78,38 @@
                 </h:dataTable>
             </h:form>
             <h:panelGroup rendered="#{empty classesController.classList}">
+<<<<<<< HEAD
+                <p>Não existem Unidade Curriculares</p>
+            </h:panelGroup>
+            <f:view>
+                <h:form>
+                    <h:commandButton style="margin-top: 30px; width: calc((100%)/2)" value =
+=======
                 <p>Não existem Unidades Curriculares</p>
             </h:panelGroup>
             <f:view>
                 <h:form>
                     <h:commandButton style="margin-top: 30px" value =
+>>>>>>> ea7593c58e68e612988c166e7ed1da6566a62f3b
                             "Criar Unidade Curricular"
                                      onclick = "toggle('form'); return false;"/>
                 </h:form>
                 <h:form id = "form"
+<<<<<<< HEAD
+                        style = "display:none; width: 55%;
+                                margin-right: 10px ">
+                    <!--
+                    <h:inputTextarea style = "height:60px; width:300px;
+                                     resize: none; "
+                                     binding = "#{newUC}"/> -->
+                    <p><b>Nome:</b> <h:inputText style="margin-left:5px; width: calc((120%)/2)"
+                            value="#{classesController.classes.name}"/></p>
+                    <h:commandButton value = "Guardar"
+                                     style = "width:210px"
+                                     action = "#{classesController.addClasses()}"
+                                     onclick = "alert('Unidade Curricular ' +
+                                           '#{classesController.classes.name}' +
+=======
                         style = "display:none; width: 30%;
                                 margin-right: 150px ">
                     <p>Name: <h:inputText
@@ -89,6 +121,7 @@
                                              (name.value)}"
                                      onclick = "alert('Unidade Curricular ' +
                                            '#{name.value}' +
+>>>>>>> ea7593c58e68e612988c166e7ed1da6566a62f3b
                                            ' criada!');"/>
                 </h:form>
                 <script type = "text/javascript">
