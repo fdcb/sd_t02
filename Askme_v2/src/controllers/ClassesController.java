@@ -38,13 +38,29 @@ public class ClassesController implements Serializable {
         classList = classesSessionBean.getClasses();
     }
 
+<<<<<<< HEAD
     public String addClasses(){
+=======
+    public String addClasses(String name){
+        classes.setName(name);
+>>>>>>> ea7593c58e68e612988c166e7ed1da6566a62f3b
         List<Classes> classesList1 = classesSessionBean.getClasses(classes
                 .getName());
         if(!classesList1.isEmpty())
             return "listClasses.xhtml";
+<<<<<<< HEAD
         classes.setClassId(classList.size() + 1);
         classesSessionBean.addClass(classes);
+=======
+        Logger log = Logger.getLogger(ClassesController.class.getName());
+        if(getClasses().getName() == null) {
+            log.info("ClassName: nope aint working");
+            return "listClasses.xhtml";
+        }
+        log.info("ClassName: " + getClasses().getName());
+        getClasses().setClassId(classList.size() + 1);
+        classesSessionBean.addClass(getClasses());
+>>>>>>> ea7593c58e68e612988c166e7ed1da6566a62f3b
         return "listClasses.xhtml";
     }
 
