@@ -11,6 +11,10 @@
           type = "text/css"/>
     <title>AskMe - Classes</title>
 </h:head>
+
+<f:metadata>
+    <f:viewParam name="nameClasses" value="ole"/>
+</f:metadata>
 <h:body>
     <h:form>
         <div class = "maindiv1">
@@ -63,7 +67,7 @@
                         <f:facet name = "header">
                             <h:outputText value = "Unidades Curriculares "/>
                         </f:facet>
-                        <h:commandButton styleClass="input1" value =
+                        <h:commandButton id="b1" styleClass="input1" value =
                                 "#{classesList.name}"
                                          action = "#{classesController.
                                                 goToExerciseList(classesList)}">

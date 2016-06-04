@@ -63,5 +63,7 @@ public class ClassesController implements Serializable {
         log.info("ClassName: " + classes.getClassId());
         return "SubmitExercise.xhtml";
     }
+
+
 }
 
