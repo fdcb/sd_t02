@@ -36,10 +36,8 @@
                 </h3>
                 <h:commandButton style="margin-top: 5px"
                                  value="LogOut"
-                                 onclick="alert('A sair do AskMe ');"
+                                 onclick="alert('A sair do AskMe');"
                                  action="#{userController.resetUser}"/>
-
-
             </div>
         </div>
     </h:form>
@@ -83,12 +81,14 @@
                         style = "display:none; width: 30%;
                                 margin-right: 150px ">
                     <p>Name: <h:inputText
-                            value="#{classesController.classes.name}"/></p>
+                            binding="#{name}"/></p>
                     <h:commandButton value = "Guardar"
                                      style = "width:306px"
-                                     action = "#{classesController.addClasses}"
+                                     action =
+                                             "#{classesController.addClasses
+                                             (name.value)}"
                                      onclick = "alert('Unidade Curricular ' +
-                                           '#{classesController.classes.name}' +
+                                           '#{name.value}' +
                                            ' criada!');"/>
                 </h:form>
                 <script type = "text/javascript">
