@@ -13,7 +13,7 @@ import java.util.List;
 @RequestScoped
 public class UserController {
     @EJB
-    UsersSessionBean userSessionBean;
+    UsersSessionBean userSessionBean = new UsersSessionBean();
 
     public static String username;
     public int id;
