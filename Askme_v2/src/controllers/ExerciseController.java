@@ -11,6 +11,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +20,7 @@ import java.util.List;
 
 @Named(value="exerciseController")
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class ExerciseController implements Serializable {
     @EJB
     ExerciseSessionBean exerciseSessionBean = new ExerciseSessionBean();
