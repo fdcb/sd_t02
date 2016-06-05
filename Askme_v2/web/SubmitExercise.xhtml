@@ -16,17 +16,18 @@
             <div class = "acessos">
                 <center><h2>Utilizador Online</h2></center>
                 <hr class = "noscreen"/>
-                <h3 style="text-align: center">
-                    #{userController.username}
+                <h3 style = "text-align: center">
+                    #{exerciseController.username}
                 </h3>
                 <center>
-                    <h:commandButton style="margin-top: 5px; margin-right: 5px ;width: 65px"
-                                     value="Voltar"
-                                     action="listClasses"/>
-                    <h:commandButton style="margin-top: 5px; width: 65px"
-                                     value="LogOut"
-                                     onclick="alert('A sair do AskMe ');"
-                                     action="#{userController.resetUser}"/>
+                    <h:commandButton style = "margin-top: 5px;
+                            margin-right: 5px; width: 65px"
+                                     value = "Voltar"
+                                     action = "listClasses"/>
+                    <h:commandButton style = "margin-top: 5px; width: 65px"
+                                     value = "LogOut"
+                                     onclick = "alert('A sair do AskMe');"
+                                     action = "#{userController.resetUser}"/>
                 </center>
             </div>
         </div>
@@ -40,7 +41,7 @@
                                    title = "#">AskMe<span>.com</span></a></h1>
                 <hr class = "noscreen"/>
             </div>
-            <h2> #{exerciseController.classname} </h2>
+            <h2>#{exerciseController.classname}</h2>
             <h:form
                     rendered = "#{not empty classesController.classList}">
                 <h:dataTable styleClass = "table-fill"
@@ -55,7 +56,12 @@
                         <h:commandButton styleClass = "input1"
                                          value = "#{exercises.description}"
                                          action = "SubmitSolution">
-                            
+                            <f:param name = "username"
+                                     value = "#{exerciseController.username}"/>
+                            <f:param name="classname"
+                                     value="#{exerciseController.classname}"/>
+                            <f:param name="exerciseId"
+                                     value="#{exerciseController.exerciseIdToString(exercises)}"/>
                         </h:commandButton>
                     </h:column>
                 </h:dataTable>
@@ -68,33 +74,34 @@
                             onclick = "toggle('form'); return false;"/>
                 </h:form>
                 <h:form id = "form"
-                        style = "display:none; width: 30%; margin-right: 150px ">
+                        style = "display:none; width: 30%;
+                        margin-right: 150px ">
                     <h:inputTextarea
                             style = "height:100px; width:300px;  resize: none; "
                             binding = "#{description}"/>
                     <h:commandButton value = "Guardar"
                                      style = "width:306px"
-                                     action =
-                                             "#{exerciseController.addExercise(description.value)}"
+                                     action = "#{exerciseController.
+                                             addExercise(description.value)}"
                                      onclick = "alert
                                      ('Exercício submetido!');">
                         <f:param name = "classname"
                                  value = "#{exerciseController.classname}"/>
                         <f:param name = "username"
-                                 value="#{exerciseController.username}"/>
+                                 value = "#{exerciseController.username}"/>
                     </h:commandButton>
                     <h:commandButton value = "Cancelar"
                                      action = "listClasses"
-                                     style = "margin-left: 85px; margin-top: 5px"/>
+                                     style = "margin-left: 85px;
+                                     margin-top: 5px"/>
                 </h:form>
                 <script type = "text/javascript">
                     function toggle(id) {
                         var element = document.getElementById(id);
-                        if (element.style.display == 'block') {
+                        if (element.style.display == 'block')
                             element.style.display = 'none';
-                        } else {
+                        else
                             element.style.display = 'block';
-                        }
                     }
                 </script>
             </f:view>
