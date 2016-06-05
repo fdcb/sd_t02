@@ -10,13 +10,13 @@ import sessionBeans.ExerciseStateSessionBean;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Named(value="exerciseController")
 @ManagedBean
@@ -32,10 +32,8 @@ public class ExerciseController implements Serializable {
 
     private String classname;
     private String username;
-    private String exerciseId;
 
     private List<Exercise> exerciseList;
-    private Exercise exercise = new Exercise();
     private Classes classes;
 
     @PostConstruct
@@ -54,14 +52,6 @@ public class ExerciseController implements Serializable {
         return exerciseList;
     }
 
-    public String getExerciseId() {
-        return exerciseId;
-    }
-
-    public void setExerciseId(String exerciseId) {
-        this.exerciseId = exerciseId;
-    }
-
     public String getUsername(){
         return username;
     }
@@ -70,26 +60,24 @@ public class ExerciseController implements Serializable {
         return classname;
     }
 
-    public void setClassname(String classname) {
-        this.classname = classname;
-    }
-
     public String addExercise(String description){
+        Exercise exercise = new Exercise();
+        List<ExerciseState> exerciseStateList = exerciseStateSessionBean
+                .getExerciseState(ExerciseState.OPEN);
+
         exercise.setClassId(classes.getClassId());
         exercise.setUsername(username);
         exercise.setDescription(description);
         exercise.setExerciseId(exerciseList.size() + 1);
-
-        List<ExerciseState> exerciseStateList = exerciseStateSessionBean
-                .getExerciseState(ExerciseState.OPEN);
         exercise.setId_state(exerciseStateList.get(0).getStateId());
 
         exerciseSessionBean.addExercise(exercise);
         return "SubmitExercise.xhtml";
     }
 
-    public String exerciseIdToString(){
-        exerciseId = Integer.toString(exercise.getExerciseId());
-        return "SubmitSolution.xhtml";
+    public String exerciseIdToString(Exercise exercise){
+        Logger log = Logger.getLogger(ClassesController.class.getName());
+        log.info("Exercise: " + exercise.getExerciseId());
+        return Integer.toString(exercise.getExerciseId());
     }
 }

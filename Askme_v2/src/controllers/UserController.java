@@ -4,12 +4,14 @@ import entities.Users;
 import sessionBeans.UsersSessionBean;
 
 import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 
 @Named (value="userController")
+@ManagedBean
 @RequestScoped
 public class UserController {
     @EJB
