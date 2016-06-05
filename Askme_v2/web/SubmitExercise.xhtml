@@ -26,17 +26,15 @@
                 <h:dataTable styleClass = "table-fill"
                              value =
                                      "#{exerciseController.exerciseList}"
-                             var = "classesList"
+                             var = "exercises"
                              border = "1">
                     <h:column>
                         <f:facet name = "header">
                             <h:outputText value = "Exercícios submetidos "/>
                         </f:facet>
                         <h:commandButton styleClass = "input1"
-                                         value =
-                                                 "#{classesList.name}"
-                                         action = "#{classesController.
-                                                goToExerciseList(classesList)}"/>
+                                         value = "#{exercises.description}"
+                                         action = "SubmitSolution"></h:commandButton>
                     </h:column>
                 </h:dataTable>
             </h:form>
@@ -55,8 +53,15 @@
                             binding = "#{description}"/>
                     <h:commandButton value = "Guardar"
                                      style = "width:306px"
-                                     action = "#{exerciseController.addExercise()}"
-                                     onclick = "alert ('Exercício submetido!');"/>
+                                     action =
+                                             "#{exerciseController.addExercise(description.value)}"
+                                     onclick = "alert
+                                     ('Exercício submetido!');">
+                        <f:param name = "classname"
+                                 value = "#{exerciseController.classname}"/>
+                        <f:param name = "username"
+                                 value="#{exerciseController.username}"/>
+                    </h:commandButton>
                     <h:commandButton value = "Cancelar"
                                      action = "listClasses"
                                      style = "margin-left: 85px; margin-top: 5px"/>
