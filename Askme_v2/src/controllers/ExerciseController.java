@@ -2,8 +2,10 @@ package controllers;
 
 import entities.Classes;
 import entities.Exercise;
+import entities.ExerciseState;
 import sessionBeans.ClassesSessionBean;
 import sessionBeans.ExerciseSessionBean;
+import sessionBeans.ExerciseStateSessionBean;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -23,8 +25,13 @@ public class ExerciseController implements Serializable {
     ExerciseSessionBean exerciseSessionBean = new ExerciseSessionBean();
     @EJB
     ClassesSessionBean classesSessionBean = new ClassesSessionBean();
+    @EJB
+    ExerciseStateSessionBean exerciseStateSessionBean = new
+            ExerciseStateSessionBean();
 
     private String classname;
+    private String username;
+    private String exerciseId;
 
     private List<Exercise> exerciseList;
     private Exercise exercise = new Exercise();
@@ -35,6 +42,7 @@ public class ExerciseController implements Serializable {
         HttpServletRequest request = (HttpServletRequest) FacesContext.
                 getCurrentInstance().getExternalContext().getRequest();
         classname = request.getParameter("classname");
+        username = request.getParameter("username");
 
         List<Classes> list = classesSessionBean.getClasses(classname);
         classes = list.get(0);
@@ -45,12 +53,16 @@ public class ExerciseController implements Serializable {
         return exerciseList;
     }
 
-    public Exercise getExercise(){
-        return exercise;
+    public String getExerciseId() {
+        return exerciseId;
     }
 
-    public void setClasses(Classes classes) {
-        this.classes = classes;
+    public void setExerciseId(String exerciseId) {
+        this.exerciseId = exerciseId;
+    }
+
+    public String getUsername(){
+        return username;
     }
 
     public String getClassname() {
@@ -60,7 +72,23 @@ public class ExerciseController implements Serializable {
     public void setClassname(String classname) {
         this.classname = classname;
     }
-    public String addExercise(){
-        return "listClasses.xhtml";
+
+    public String addExercise(String description){
+        exercise.setClassId(classes.getClassId());
+        exercise.setUsername(username);
+        exercise.setDescription(description);
+        exercise.setExerciseId(exerciseList.size() + 1);
+
+        List<ExerciseState> exerciseStateList = exerciseStateSessionBean
+                .getExerciseState(ExerciseState.OPEN);
+        exercise.setId_state(exerciseStateList.get(0).getStateId());
+
+        exerciseSessionBean.addExercise(exercise);
+        return "SubmitExercise.xhtml";
+    }
+
+    public String exerciseIdToString(){
+        exerciseId = Integer.toString(exercise.getExerciseId());
+        return "SubmitSolution.xhtml";
     }
 }
