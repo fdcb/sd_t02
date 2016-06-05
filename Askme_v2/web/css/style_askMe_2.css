@@ -84,6 +84,39 @@
 
 .maindiv4 h2 { color: #000; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
 
+.maindiv5{
+    position: absolute;
+    width:calc((25%)/2);
+    height:calc((95%)/2);
+    right:0;
+    top:0;
+    margin-right: 20px;
+    margin-top: 20px;
+    background-color:  rgba(255, 255, 255, 0.9); /* o ultimo parametro é a opacidade da caixa */
+    overflow: auto;
+
+    border-radius: 25px;
+    padding:25px;
+}
+
+.maindiv5 h2 { color: #000; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+
+.maindiv6{
+    position: absolute;
+    width:calc((25%)/2);
+    height:calc((50%)/2);
+    right:0;
+
+    margin-right: 20px;
+    margin-top: 480px;
+    background-color:  rgba(255, 255, 255, 0.9); /* o ultimo parametro é a opacidade da caixa */
+    overflow: auto;
+
+    border-radius: 25px;
+    padding:25px;
+}
+
+.maindiv6 h2 { color: #000; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
 
 
 body {
