@@ -14,7 +14,8 @@
                          <h1 id="logo"><a href="#" title="#">AskMe<span>.com</span></a> </h1>
                          <hr class="noscreen" />   
                     </div>
-                        <h2> #{exerciseController.classname} </h2>
+                        <h2>Unidade Curricular -
+                        #{exerciseController.classname} </h2>
                         <h:form
                         rendered = "#{not empty classesController.classList}">
                     <h:dataTable styleClass="table-fill" value =
@@ -36,7 +37,7 @@
                         <f:view>
                             <h:form >
                                 <h:commandButton
-                                        style="width: calc((60%)/2); margin-top: 5px" value="Submeter Exercício"
+                                        style="width: calc((60%)/2); margin-top: 5px; margin-bottom: 5px" value="Submeter Exercício"
                                         onclick="toggle('form'); return
                                         false;" />
                             </h:form>
