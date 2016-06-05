@@ -11,6 +11,26 @@
     <title>AskMe</title>
 </h:head>
 <h:body>
+    <h:form>
+        <div class = "maindiv1">
+            <div class = "acessos">
+                <center><h2>Utilizador Online</h2></center>
+                <hr class = "noscreen"/>
+                <h3 style="text-align: center">
+                    #{userController.username}
+                </h3>
+                <center>
+                    <h:commandButton style="margin-top: 5px; margin-right: 5px ;width: 65px"
+                                     value="Voltar"
+                                     action="listClasses"/>
+                    <h:commandButton style="margin-top: 5px; width: 65px"
+                                     value="LogOut"
+                                     onclick="alert('A sair do AskMe ');"
+                                     action="#{userController.resetUser}"/>
+                </center>
+            </div>
+        </div>
+    </h:form>
     <center>
         <div class = "maindiv"
              style = "">
@@ -43,10 +63,9 @@
             <f:view>
                 <h:form>
                     <h:commandButton
-                            style = "width: calc((60%)/2); margin-top: 5px"
+                            style = "width: calc((60%)/2); margin-top: 5px; margin-bottom: 5px"
                             value = "Submeter Exercício"
-                            onclick = "toggle('form'); return
-                                        false;"/>
+                            onclick = "toggle('form'); return false;"/>
                 </h:form>
                 <h:form id = "form"
                         style = "display:none; width: 30%; margin-right: 150px ">
