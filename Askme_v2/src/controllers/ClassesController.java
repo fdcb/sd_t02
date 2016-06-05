@@ -55,15 +55,8 @@ public class ClassesController implements Serializable {
         return classesEntities.size();
     }
 
-    public String goToExerciseList(Classes classes){
-        Logger log = Logger.getLogger(ClassesController.class.getName());
-        log.info("ClassName: " + classes.getName());
-        this.classes.setName(classes.getName());
-        this.classes.setClassId(classes.getClassId());
-        log.info("ClassName: " + classes.getClassId());
+    public String goToExerciseList(){
         return "SubmitExercise.xhtml";
     }
-
-
 }
 

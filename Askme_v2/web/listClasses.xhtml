@@ -70,8 +70,9 @@
                         <h:commandButton id="b1" styleClass="input1" value =
                                 "#{classesList.name}"
                                          action = "#{classesController.
-                                                goToExerciseList(classesList)}">
+                                                goToExerciseList()}">
                         <f:param name = "classname" value="#{classesList.name}"/>
+                        <f:param name = "username" value="#{userController.username}"/>
                     </h:commandButton>
                     </h:column>
                 </h:dataTable>
