@@ -19,8 +19,8 @@
 
 .maindiv1{
     position: absolute;
-    width:200px;
-    height:210px;
+    width:calc((25%)/2);
+    height:calc((85%)/2);
     right:0;
     top:0;
     margin-right: 20px;
@@ -59,7 +59,7 @@
     right:0;
 
     margin-right: 20px;
-    margin-top: 300px;
+    margin-top: 440px;
     background-color:  rgba(255, 255, 255, 0.9); /* o ultimo parametro é a opacidade da caixa */
     overflow: auto;
 
