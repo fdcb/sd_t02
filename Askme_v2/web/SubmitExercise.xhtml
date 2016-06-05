@@ -14,15 +14,43 @@
     <h:form>
         <div class = "maindiv1">
             <div class = "acessos">
+                <center><h2>Informação adicional</h2></center>
+                <hr class = "noscreen"/>
+                <h:panelGrid columns = "2">
+                    <h:outputLabel value = "Exercícíos: "/>
+                    <h:outputLabel
+                            value =
+                                    "#{exerciseController.exerciseList.size()}"
+                            />
+
+
+                </h:panelGrid>
+                <h:commandButton style="margin-top: 15px; margin-left: 30px;
+                                 width: 150px" value="Unidades Curriculares"
+                                 action="listClasses"/>
+                <hr class = "noscreen"/>
+                <h:commandButton style="margin-top: 15px; margin-left: 30px;
+                                 width: 150px" value="Abertos"
+                                 action="listClasses"/>
+                <h:commandButton style="margin-top: 15px; margin-left: 30px;
+                                 width: 150px" value="Fechados"
+                                 action="listClasses"/>
+                <h:commandButton style="margin-top: 15px; margin-left: 30px;
+                                 width: 150px" value="Todos"
+                                 action="listClasses"/>
+            </div>
+        </div>
+    </h:form>
+    <h:form>
+        <div class = "maindiv3">
+            <div class = "acessos">
                 <center><h2>Utilizador Online</h2></center>
                 <hr class = "noscreen"/>
                 <h3 style="text-align: center">
                     #{userController.username}
                 </h3>
                 <center>
-                    <h:commandButton style="margin-top: 5px; margin-right: 5px ;width: 65px"
-                                     value="Voltar"
-                                     action="listClasses"/>
+
                     <h:commandButton style="margin-top: 5px; width: 65px"
                                      value="LogOut"
                                      onclick="alert('A sair do AskMe ');"
