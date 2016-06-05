@@ -11,6 +11,54 @@
     <title>AskMe</title>
 </h:head>
 <h:body>
+    <h:form>
+        <div class = "maindiv5">
+            <div class = "acessos">
+                <center><h2>Informação adicional</h2></center>
+                <hr class = "noscreen"/>
+                <h:panelGrid columns = "2">
+                    <h:outputLabel value = "Soluções: "/>
+                    <h:outputLabel
+                            value =
+                                    "#{solutionController.solutionList.size()}"
+                    />
+                </h:panelGrid>
+                <h:commandButton style="margin-top: 15px; margin-left: 30px;
+                                 width: 150px" value="Unidades Curriculares"
+                                 action="listClasses"/>
+                <hr class = "noscreen"/>
+                <h:commandButton style="margin-top: 15px; margin-left: 30px;
+                                 width: 150px" value="Por validar"
+                                 action="SubmitSolution"/>
+                <h:commandButton style="margin-top: 15px; margin-left: 30px;
+                                 width: 150px" value="Corretos"
+                                 action="SubmitSolution"/>
+                <h:commandButton style="margin-top: 15px; margin-left: 30px;
+                                 width: 150px" value="Incorretos"
+                                 action="SubmitSolution"/>
+                <h:commandButton style="margin-top: 15px; margin-left: 30px;
+                                 width: 150px" value="Todas"
+                                 action="SubmitSolution"/>
+            </div>
+        </div>
+    </h:form>
+    <h:form>
+        <div class = "maindiv6">
+            <div class = "acessos">
+                <center><h2>Utilizador Online</h2></center>
+                <hr class = "noscreen"/>
+                <h3 style = "text-align: center">
+                    #{exerciseController.username}
+                </h3>
+                <center>
+                    <h:commandButton style="margin-top: 5px; width: 65px"
+                                     value="LogOut"
+                                     onclick="alert('A sair do AskMe ');"
+                                     action="#{userController.resetUser}"/>
+                </center>
+            </div>
+        </div>
+    </h:form>
     <center>
         <div class = "maindiv"
              style = "">
@@ -22,10 +70,36 @@
             </div>
             <h2>#{solutionController.classname}</h2>
             <h2>#{solutionController.exercise.description}</h2>
+            <h:form
+                    rendered = "#{not empty solutionController.solutionList}">
+                <h:dataTable styleClass = "table-fill"
+                             value =
+                                     "#{solutionController.solutionList}"
+                             var = "solutions"
+                             border = "1">
+                    <h:column>
+                        <f:facet name = "header">
+                            <h:outputText value = "Soluções submetidos "/>
+                        </f:facet>
+                        <h:commandButton styleClass = "input1"
+                                         value = "#{solutions.description}"
+                                         action = "SubmitSolution">
+                            <f:param name = "username"
+                                     value = "#{solutionController.username}"/>
+                            <f:param name="classname"
+                                     value="#{solutionController.classname}"/>
+                           <f:param name="solutionId"
+                                     value="#{solutionController.addSolution(solutions)}"/>
+                        </h:commandButton>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
             <f:view>
                 <h:form>
-                    <h:commandButton value = "Submeter Solução"
-                                     onclick = "toggle('form'); return false;"/>
+                    <h:commandButton
+                            style = "width: calc((60%)/2); margin-top: 5px; margin-bottom: 5px"
+                            value = "Submeter Solução"
+                            onclick = "toggle('form'); return false;"/>
                 </h:form>
                 <h:form id = "form" style = "display:none; width: 30%;
                         margin-right: 150px ">
@@ -39,8 +113,16 @@
                                      onclick = "alert ('Solução submetida!');"/>
                     <h:commandButton value = "Cancelar"
                                      action = "listClasses"
-                                     style = "margin-left: 60px"/>
+                                     style = "margin-left: 85px;
+                                     margin-top: 5px"/>
                 </h:form>
+                <h:panelGroup rendered="#{!solutionController.isAuthor}">
+                    <h:form>
+                        <p><h:commandButton value="Fechar Exercício"
+                                            action="#{solutionController.changeExerciseState()}" /></p>
+                    </h:form>
+                </h:panelGroup>
+
                 <script type = "text/javascript">
                     function toggle(id) {
                         var element = document.getElementById(id);

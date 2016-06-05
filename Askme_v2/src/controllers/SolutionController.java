@@ -74,7 +74,7 @@ public class SolutionController implements Serializable{
         return classname;
     }
 
-    public void addSolution(String description){
+    public String addSolution(String description){
         Solution solution = new Solution();
         List<SolutionState> solutionStateList = solutionStateSessionBean
                 .getSolutionStates(SolutionState.UNSEEN);
@@ -87,6 +87,8 @@ public class SolutionController implements Serializable{
         solution.setId_state(solutionStateList.get(0).getStateId());
 
         solutionSessionBean.addSolution(solution);
+        return "SubmitSolution.xhtml";
     }
+
 }
 
