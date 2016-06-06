@@ -1,9 +1,6 @@
 package controllers;
 
-import entities.Classes;
-import entities.Exercise;
-import entities.Solution;
-import entities.SolutionState;
+import entities.*;
 import sessionBeans.*;
 
 import javax.annotation.PostConstruct;
@@ -30,19 +27,24 @@ public class SolutionController implements Serializable{
     @EJB
     SolutionStateSessionBean solutionStateSessionBean = new
             SolutionStateSessionBean();
+    @EJB
+    private ExerciseStateSessionBean exerciseStateSessionBean = new
+            ExerciseStateSessionBean();
 
     private String classname;
     private String username;
     private String exerciseId;
     private boolean author;
+    private boolean closed;
     private int unseenId;
-    private String state;
+    private int closedId;
 
     private List<Solution> solutionList;
     private List<Solution> allSolutions;
     private Exercise exercise;
 
     public static final String ALL = "all";
+
 
     @PostConstruct
     public void init(){
@@ -55,6 +57,9 @@ public class SolutionController implements Serializable{
         solutionStateList = solutionStateSessionBean
                 .getSolutionStates(SolutionState.WRONG);
         int wrongId = solutionStateList.get(0).getStateId();
+        List<ExerciseState> exerciseStateList = exerciseStateSessionBean
+                .getExerciseState(ExerciseState.CLOSED);
+        closedId = exerciseStateList.get(0).getStateId();
 
         HttpServletRequest request = (HttpServletRequest) FacesContext.
                 getCurrentInstance().getExternalContext().getRequest();
@@ -63,7 +68,7 @@ public class SolutionController implements Serializable{
         exerciseId = request.getParameter("exerciseId");
         Logger log = Logger.getLogger(ClassesController.class.getName());
         log.info("Exercise: " + exerciseId);
-        state = request.getParameter("state");
+        String state = request.getParameter("state");
 
         List<Classes> classesList = classesSessionBean.getClasses(classname);
         List<Exercise> exerciseList = exerciseSessionBean.getExercises
@@ -74,12 +79,13 @@ public class SolutionController implements Serializable{
         allSolutions = solutionSessionBean.getSolutions(exercise.getClassId(),
                 exercise.getExerciseId());
 
-        author = username.equals(exercise.getUsername());
+        author = username.equals(exercise.getUsername()) && !(exercise
+                .getId_state() == closedId);
+        closed = exercise.getId_state() == closedId;
 
         for(Solution aSolutionList : allSolutions)
-            if (aSolutionList.getId_state() == unseenId) {
+            if (aSolutionList.getId_state() == unseenId)
                 author = false;
-            }
 
         switch (state){
             case ALL: solutionList = allSolutions; break;
@@ -135,9 +141,14 @@ public class SolutionController implements Serializable{
         return SolutionState.CORRECT;
     }
 
+    public boolean isClosed() {
+        return closed;
+    }
+
     public String getAllState(){
         return ALL;
     }
+
     public String addSolution(String description){
         Solution solution = new Solution();
 
@@ -154,6 +165,11 @@ public class SolutionController implements Serializable{
 
     public String solutionIdToString(Solution solution){
         return Integer.toString(solution.getSolutionId());
+    }
+
+    public String changeExerciseState(){
+        exerciseSessionBean.changeExerciseState(exercise, closedId);
+        return "SubmitExercise.xhtml";
     }
 }
 
