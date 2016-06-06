@@ -1,7 +1,5 @@
 package sessionBeans;
 
-import entities.Solution;
-import entities.SolutionPK;
 import entities.Users;
 
 import javax.ejb.Stateless;

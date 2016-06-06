@@ -33,15 +33,36 @@
                 <h:commandButton style = "margin-top: 15px; margin-left: 30px;
                                  width: 150px"
                                  value = "Abertos"
-                                 action = "SubmitExercise"/>
+                                 action = "SubmitExercise">
+                    <f:param name = "classname"
+                             value = "#{exerciseController.classname}"/>
+                    <f:param name = "username"
+                             value = "#{exerciseController.username}"/>
+                    <f:param name="state"
+                             value="#{exerciseController.openState}"/>
+                </h:commandButton>
                 <h:commandButton style = "margin-top: 15px; margin-left: 30px;
                                  width: 150px"
                                  value = "Fechados"
-                                 action = "SubmitExercise"/>
+                                 action = "SubmitExercise">
+                    <f:param name = "classname"
+                             value = "#{exerciseController.classname}"/>
+                    <f:param name = "username"
+                             value = "#{exerciseController.username}"/>
+                    <f:param name="state"
+                             value="#{exerciseController.closedState}"/>
+                </h:commandButton>
                 <h:commandButton style = "margin-top: 15px; margin-left: 30px;
                                  width: 150px"
                                  value = "Todos"
-                                 action = "SubmitExercise"/>
+                                 action = "SubmitExercise">
+                    <f:param name = "classname"
+                             value = "#{exerciseController.classname}"/>
+                    <f:param name = "username"
+                             value = "#{exerciseController.username}"/>
+                    <f:param name="state"
+                             value="#{exerciseController.allState}"/>
+                </h:commandButton>
             </div>
         </div>
     </h:form>
