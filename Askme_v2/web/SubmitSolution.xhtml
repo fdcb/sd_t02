@@ -170,7 +170,16 @@
                     <h:form>
                         <p><h:commandButton value = "Fechar Exercício"
                                             action = "#{solutionController.
-                                            changeExerciseState()}"/></p>
+                                            changeExerciseState()}">
+                        <f:param name = "classname"
+                                 value = "#{solutionController.classname}"/>
+                        <f:param name = "username"
+                                 value = "#{solutionController.username}"/>
+                        <f:param name = "exerciseId"
+                                 value = "#{solutionController.exerciseId}"/>
+                        <f:param name = "state"
+                                 value="#{solutionController.allState}"/>
+                        </h:commandButton></p>
                     </h:form>
                 </h:panelGroup>
                 <script type = "text/javascript">
