@@ -9,6 +9,7 @@
         <title>AskMe</title>
     </h:head>
     <h:body>
+<<<<<<< HEAD
 
         <h:form id="form" style="display:none; width: 30%; ">
 
@@ -216,6 +217,86 @@
         </center>
             
      
+=======
+        <h:form>
+            <div class = "maindiv6">
+                <div class = "acessos">
+                    <center><h2>Informação adicional</h2></center>
+                    <hr class = "noscreen"/>
+                    <h:panelGrid columns = "2">
+                        <h:outputLabel value = "Unidades Curriculares: "/>
+                        <h:outputLabel
+                                value = "#{classesController.getClassesNumber()}
+                                "/>
+                        <br/>
+                    </h:panelGrid>
+                    <h:commandButton style="margin-top: 4px; margin-left: 30px;
+                                 width: 150px" value="Unidades Curriculares"
+                                     action="listClasses"/>
+                </div>
+            </div>
+        </h:form>
+        <h:form>
+            <div class = "maindiv2">
+                <div class = "acessos">
+                    <center><h2>Utilizador Online</h2></center>
+                    <hr class = "noscreen"/>
+                    <h3 style="text-align: center">
+                        #{userController.username}
+                    </h3>
+                    <center>
+                        <h:commandButton style="margin-top: 5px; width: 65px"
+                                         value="LogOut"
+                                         onclick="alert('A sair do AskMe ');"
+                                         action="#{userController.resetUser}"/>
+                    </center>
+                </div>
+            </div>
+        </h:form>
+
+        <center>
+            <div class="maindiv" style="">
+                <div class="header" style="">
+                     <h1 id="logo"><a href="#" title="#">AskMe<span>.com</span>
+                     </a> </h1>
+                     <hr class="noscreen" />
+                </div>
+                <h2>BONITO</h2>
+                <h:form>
+                    <h3> Enunciado do Exercício:</h3>
+                    <h:outputText value = "AUI o ENUNCIADO DO exercício "/>
+                    <h3> Resposta:</h3>
+                    <h:outputText value = "AQUI a resposta DO exercício "/>
+                    <hr class="noscreen" />
+
+                    <h:panelGroup rendered="#{solutionController.isAuthor}">
+                        <h:form>
+                            <h:commandButton value = "Correta" action = "listClasses"
+                                             style = "margin-left: 10px;
+                                     margin-top: 5px; width: calc((50%)/2)"/>
+                            <h:commandButton value = "Incorreta" action = "listClasses"
+                                             style = "margin-left: 10px;
+                                     margin-top: 5px; width: calc((50%)/2)"/>
+                        </h:form>
+                    </h:panelGroup>
+                </h:form>
+                  <br></br>
+
+                    <script type="text/javascript">
+                        function toggle(id) {
+                          var element = document.getElementById(id);
+                          if(element.style.display == 'block') {
+                            element.style.display = 'none';
+                          } else {
+                            element.style.display = 'block';
+                          }
+                        }
+                  </script>
+
+            </div>
+        </center>
+
+>>>>>>> a6013c6f3acd8b7d98453630907badba7bb63b29
     </h:body>
 </html>
 
