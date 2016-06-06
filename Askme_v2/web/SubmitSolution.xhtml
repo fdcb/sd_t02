@@ -23,22 +23,27 @@
                                     "#{solutionController.solutionList.size()}"
                     />
                 </h:panelGrid>
-                <h:commandButton style="margin-top: 15px; margin-left: 30px;
-                                 width: 150px" value="Unidades Curriculares"
-                                 action="listClasses"/>
+                <h:commandButton style = "margin-top: 15px; margin-left: 30px;
+                                 width: 150px"
+                                 value = "Unidades Curriculares"
+                                 action = "listClasses"/>
                 <hr class = "noscreen"/>
-                <h:commandButton style="margin-top: 15px; margin-left: 30px;
-                                 width: 150px" value="Por validar"
-                                 action="SubmitSolution"/>
-                <h:commandButton style="margin-top: 15px; margin-left: 30px;
-                                 width: 150px" value="Corretos"
-                                 action="SubmitSolution"/>
-                <h:commandButton style="margin-top: 15px; margin-left: 30px;
-                                 width: 150px" value="Incorretos"
-                                 action="SubmitSolution"/>
-                <h:commandButton style="margin-top: 15px; margin-left: 30px;
-                                 width: 150px" value="Todas"
-                                 action="SubmitSolution"/>
+                <h:commandButton style = "margin-top: 15px; margin-left: 30px;
+                                 width: 150px"
+                                 value = "Por validar"
+                                 action = "SubmitSolution"/>
+                <h:commandButton style = "margin-top: 15px; margin-left: 30px;
+                                 width: 150px"
+                                 value = "Corretos"
+                                 action = "SubmitSolution"/>
+                <h:commandButton style = "margin-top: 15px; margin-left: 30px;
+                                 width: 150px"
+                                 value = "Incorretos"
+                                 action = "SubmitSolution"/>
+                <h:commandButton style = "margin-top: 15px; margin-left: 30px;
+                                 width: 150px"
+                                 value = "Todas"
+                                 action = "SubmitSolution"/>
             </div>
         </div>
     </h:form>
@@ -51,10 +56,10 @@
                     #{exerciseController.username}
                 </h3>
                 <center>
-                    <h:commandButton style="margin-top: 5px; width: 65px"
-                                     value="LogOut"
-                                     onclick="alert('A sair do AskMe ');"
-                                     action="#{userController.resetUser}"/>
+                    <h:commandButton style = "margin-top: 5px; width: 65px"
+                                     value = "LogOut"
+                                     onclick = "alert('A sair do AskMe');"
+                                     action = "#{userController.resetUser}"/>
                 </center>
             </div>
         </div>
@@ -73,23 +78,25 @@
             <h:form
                     rendered = "#{not empty solutionController.solutionList}">
                 <h:dataTable styleClass = "table-fill"
-                             value =
-                                     "#{solutionController.solutionList}"
+                             value = "#{solutionController.solutionList}"
                              var = "solutions"
                              border = "1">
                     <h:column>
                         <f:facet name = "header">
-                            <h:outputText value = "Soluções submetidos "/>
+                            <h:outputText value = "Soluções submetidas"/>
                         </f:facet>
                         <h:commandButton styleClass = "input1"
                                          value = "#{solutions.description}"
                                          action = "SubmitSolution">
                             <f:param name = "username"
                                      value = "#{solutionController.username}"/>
-                            <f:param name="classname"
-                                     value="#{solutionController.classname}"/>
-                           <f:param name="solutionId"
-                                     value="#{solutionController.addSolution(solutions)}"/>
+                            <f:param name = "classname"
+                                     value = "#{solutionController.classname}"/>
+                            <f:param name = "solutionId"
+                                     value = "#{solutionController.
+                                     solutionIdToString(solutions)}"/>
+                            <f:param name = "exerciseId"
+                                     value = "#{solutionController.exerciseId}"/>
                         </h:commandButton>
                     </h:column>
                 </h:dataTable>
@@ -97,40 +104,44 @@
             <f:view>
                 <h:form>
                     <h:commandButton
-                            style = "width: calc((60%)/2); margin-top: 5px; margin-bottom: 5px"
+                            style = "width: calc((60%)/2); margin-top: 5px;
+                            margin-bottom: 5px"
                             value = "Submeter Solução"
                             onclick = "toggle('form'); return false;"/>
                 </h:form>
-                <h:form id = "form" style = "display:none; width: 30%;
+                <h:form id = "form"
+                        style = "display:none; width: 30%;
                         margin-right: 150px ">
                     <h:inputTextarea style = "height:100px; width:300px;
                             resize: none;"
-                                     binding = "#{solution}"/>
+                                     binding = "#{description}"/>
                     <h:commandButton value = "Guardar"
                                      style = "width:306px"
                                      action = "#{solutionController.
-                                             addSolution(solution)}"
-                                     onclick = "alert ('Solução submetida!');"/>
-                    <h:commandButton value = "Cancelar"
-                                     action = "listClasses"
-                                     style = "margin-left: 85px;
-                                     margin-top: 5px"/>
+                                             addSolution(description.value)}"
+                                     onclick = "alert('Solução submetida!');">
+                        <f:param name = "classname"
+                                 value = "#{solutionController.classname}"/>
+                        <f:param name = "username"
+                                 value = "#{solutionController.username}"/>
+                        <f:param name = "exerciseId"
+                                 value = "#{solutionController.exerciseId}"/>
+                    </h:commandButton>
                 </h:form>
-                <h:panelGroup rendered="#{!solutionController.isAuthor}">
+                <h:panelGroup rendered = "#{solutionController.author}">
                     <h:form>
-                        <p><h:commandButton value="Fechar Exercício"
-                                            action="#{solutionController.changeExerciseState()}" /></p>
+                        <p><h:commandButton value = "Fechar Exercício"
+                                            action = "#{solutionController.
+                                            changeExerciseState()}"/></p>
                     </h:form>
                 </h:panelGroup>
-
                 <script type = "text/javascript">
                     function toggle(id) {
                         var element = document.getElementById(id);
-                        if (element.style.display == 'block') {
+                        if (element.style.display == 'block')
                             element.style.display = 'none';
-                        } else {
+                        else
                             element.style.display = 'block';
-                        }
                     }
                 </script>
             </f:view>
