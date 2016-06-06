@@ -33,19 +33,40 @@ public class ExerciseController implements Serializable {
     private String classname;
     private String username;
 
+    private List<Exercise> allExercises;
     private List<Exercise> exerciseList;
     private Classes classes;
 
     @PostConstruct
     public void init(){
+        List<ExerciseState> exerciseStateList = exerciseStateSessionBean
+                .getExerciseState(ExerciseState.CLOSED);
+        int closeId = exerciseStateList.get(0).getStateId();
+        exerciseStateList = exerciseStateSessionBean.getExerciseState
+                (ExerciseState.OPEN);
+        int openId = exerciseStateList.get(0).getStateId();
+
         HttpServletRequest request = (HttpServletRequest) FacesContext.
                 getCurrentInstance().getExternalContext().getRequest();
         classname = request.getParameter("classname");
         username = request.getParameter("username");
+        String state = request.getParameter("state");
 
         List<Classes> list = classesSessionBean.getClasses(classname);
         classes = list.get(0);
-        exerciseList = exerciseSessionBean.getExercises(classes.getClassId());
+        allExercises = exerciseSessionBean.getExercises(classes.getClassId());
+
+        if (state != null){
+            switch (state){
+                case ExerciseState.CLOSED: exerciseList = exerciseSessionBean
+                        .getExercisesByState(classes.getClassId(), closeId);
+                    break;
+                case ExerciseState.OPEN: exerciseList = exerciseSessionBean
+                        .getExercisesByState(classes.getClassId(), openId);
+            }
+        }
+        else
+            exerciseList = allExercises;
     }
 
     public List<Exercise> getExerciseList() {
@@ -68,7 +89,7 @@ public class ExerciseController implements Serializable {
         exercise.setClassId(classes.getClassId());
         exercise.setUsername(username);
         exercise.setDescription(description);
-        exercise.setExerciseId(exerciseList.size() + 1);
+        exercise.setExerciseId(allExercises.size() + 1);
         exercise.setId_state(exerciseStateList.get(0).getStateId());
 
         exerciseSessionBean.addExercise(exercise);
@@ -83,6 +104,13 @@ public class ExerciseController implements Serializable {
         return cenas;
     }
 
+    public String getClosedState(){
+        return ExerciseState.CLOSED;
+    }
+
+    public String getOpenState(){
+        return ExerciseState.OPEN;
+    }
     public String getAllState(){
         return SolutionController.ALL;
     }

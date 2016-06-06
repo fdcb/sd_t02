@@ -36,7 +36,6 @@ public class UserController {
     @PostConstruct
     public void init(){
         accessNumber = userSessionBean.getTotalAccess();
-
     }
 
     private List<Users> list = new ArrayList<>();

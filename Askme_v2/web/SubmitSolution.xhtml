@@ -19,8 +19,7 @@
                 <h:panelGrid columns = "2">
                     <h:outputLabel value = "Soluções: "/>
                     <h:outputLabel
-                            value =
-                                    "#{solutionController.solutionList.size()}"
+                            value = "#{solutionController.solutionList.size()}"
                     />
                 </h:panelGrid>
                 <h:commandButton style = "margin-top: 15px; margin-left: 30px;
@@ -123,7 +122,7 @@
                         </f:facet>
                         <h:commandButton styleClass = "input1"
                                          value = "#{solutions.description}"
-                                         action = "SubmitSolution">
+                                         action = "consult">
                             <f:param name = "username"
                                      value = "#{solutionController.username}"/>
                             <f:param name = "classname"
@@ -133,6 +132,8 @@
                                      solutionIdToString(solutions)}"/>
                             <f:param name = "exerciseId"
                                      value = "#{solutionController.exerciseId}"/>
+                            <f:param name = "state"
+                                     value = "#{solutionController.allState}"/>
                         </h:commandButton>
                     </h:column>
                 </h:dataTable>
