@@ -3,6 +3,7 @@ package controllers;
 import entities.Users;
 import sessionBeans.UsersSessionBean;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -19,6 +20,12 @@ public class UserController {
 
     public static String username;
     public int id;
+    private int accessNumber;
+
+    @PostConstruct
+    public void init(){
+        accessNumber = userSessionBean.getTotalAccess();
+    }
 
     private List<Users> list = new ArrayList<>();
 
@@ -48,6 +55,7 @@ public class UserController {
         this.username = username;
     }
 
+    // ----------[  Other methods ]---------------//
     public String addNewUser(String username) {
         if (username.equals("") || pass == null)
             return "register.xml";
@@ -81,5 +89,12 @@ public class UserController {
     public String resetUser(){
         UserController.username = "";
         return "welcome.xhtml";
+    }
+
+
+
+    // -------------- [ ADMIN STUFF ] ---------------//
+    public int getAccessNumber() {
+        return accessNumber;
     }
 }

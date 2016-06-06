@@ -8,11 +8,22 @@
     </h:head>
     <h:body> 
         <h:form>
+<<<<<<< HEAD
          <div class="maindiv1">
                 <div class="acessos">
                     <p>Nº de Acessos</p>#{userController.numberAcess }
                 </div>
                 <h:commandButton value="LogOut" action="welcome"/>
+=======
+         <div class="maindiv4">
+                <div class="acessos">
+                    <p><b>Nº de Acessos:</b></p><center>#{userController.accessNumber}</center>
+                </div>
+                <hr class = "noscreen"/>
+                <center><h:commandButton style="margin-top: 5px;
+                        width: calc((60%)/2)" value="LogOut" action="welcome"/>
+                </center>
+>>>>>>> a6013c6f3acd8b7d98453630907badba7bb63b29
             </div>
         </h:form>
         <div class="maindiv">
@@ -35,6 +46,7 @@
             <center>
                 <h:commandButton style="width:300px; margin-top: 35px" value="Eliminar todas as soluções erradas" action="#{solutionController.deleteWrong()}" onclick="alert ('Todas as soluções erradas foram apagadas.');" />
             </center>
+<<<<<<< HEAD
 
         </h:form> 
             
@@ -64,6 +76,10 @@
             }
           }
     </script>
+=======
+        </h:form>
+        </div>
+>>>>>>> a6013c6f3acd8b7d98453630907badba7bb63b29
     </h:body>
 </html>
 
