@@ -31,19 +31,55 @@
                 <h:commandButton style = "margin-top: 15px; margin-left: 30px;
                                  width: 150px"
                                  value = "Por validar"
-                                 action = "SubmitSolution"/>
+                                 action = "SubmitSolution">
+                    <f:param name = "username"
+                             value = "#{solutionController.username}"/>
+                    <f:param name = "classname"
+                             value = "#{solutionController.classname}"/>
+                    <f:param name = "exerciseId"
+                             value = "#{solutionController.exerciseId}"/>
+                    <f:param name = "state"
+                             value = "#{solutionController.unseenState}"/>
+                </h:commandButton>
                 <h:commandButton style = "margin-top: 15px; margin-left: 30px;
                                  width: 150px"
                                  value = "Corretos"
-                                 action = "SubmitSolution"/>
+                                 action = "SubmitSolution">
+                    <f:param name = "username"
+                             value = "#{solutionController.username}"/>
+                    <f:param name = "classname"
+                             value = "#{solutionController.classname}"/>
+                    <f:param name = "exerciseId"
+                             value = "#{solutionController.exerciseId}"/>
+                    <f:param name = "state"
+                             value = "#{solutionController.correctState}"/>
+                </h:commandButton>
                 <h:commandButton style = "margin-top: 15px; margin-left: 30px;
                                  width: 150px"
                                  value = "Incorretos"
-                                 action = "SubmitSolution"/>
+                                 action = "SubmitSolution">
+                    <f:param name = "username"
+                             value = "#{solutionController.username}"/>
+                    <f:param name = "classname"
+                             value = "#{solutionController.classname}"/>
+                    <f:param name = "exerciseId"
+                             value = "#{solutionController.exerciseId}"/>
+                    <f:param name = "state"
+                             value = "#{solutionController.wrongState}"/>
+                </h:commandButton>
                 <h:commandButton style = "margin-top: 15px; margin-left: 30px;
                                  width: 150px"
                                  value = "Todas"
-                                 action = "SubmitSolution"/>
+                                 action = "SubmitSolution">
+                    <f:param name = "username"
+                             value = "#{solutionController.username}"/>
+                    <f:param name = "classname"
+                             value = "#{solutionController.classname}"/>
+                    <f:param name = "exerciseId"
+                             value = "#{solutionController.exerciseId}"/>
+                    <f:param name = "state"
+                             value = "#{solutionController.allState}"/>
+                </h:commandButton>
             </div>
         </div>
     </h:form>
@@ -126,6 +162,8 @@
                                  value = "#{solutionController.username}"/>
                         <f:param name = "exerciseId"
                                  value = "#{solutionController.exerciseId}"/>
+                        <f:param name = "state"
+                                 value="#{solutionController.allState}"/>
                     </h:commandButton>
                 </h:form>
                 <h:panelGroup rendered = "#{solutionController.author}">
