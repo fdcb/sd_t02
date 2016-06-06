@@ -3,7 +3,6 @@ package controllers;
 import entities.Classes;
 import entities.Exercise;
 import entities.ExerciseState;
-import entities.SolutionState;
 import sessionBeans.ClassesSessionBean;
 import sessionBeans.ExerciseSessionBean;
 import sessionBeans.ExerciseStateSessionBean;
