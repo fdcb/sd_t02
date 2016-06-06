@@ -10,11 +10,11 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -34,36 +34,78 @@ public class SolutionController implements Serializable{
 
     private String classname;
     private String username;
-    private int exerciseId;
+    private String exerciseId;
+    private boolean author;
+    private int unseenId;
+    private String state;
 
     private List<Solution> solutionList;
+    private List<Solution> allSolutions;
     private Exercise exercise;
+
+    public static final String ALL = "all";
 
     @PostConstruct
     public void init(){
+        List<SolutionState> solutionStateList = solutionStateSessionBean
+                .getSolutionStates(SolutionState.UNSEEN);
+        unseenId = solutionStateList.get(0).getStateId();
+        solutionStateList = solutionStateSessionBean
+                .getSolutionStates(SolutionState.CORRECT);
+        int correctId = solutionStateList.get(0).getStateId();
+        solutionStateList = solutionStateSessionBean
+                .getSolutionStates(SolutionState.WRONG);
+        int wrongId = solutionStateList.get(0).getStateId();
+
         HttpServletRequest request = (HttpServletRequest) FacesContext.
                 getCurrentInstance().getExternalContext().getRequest();
         classname = request.getParameter("classname");
         username = request.getParameter("username");
-        exerciseId = Integer.parseInt(request.getParameter("exerciseId"));
+        exerciseId = request.getParameter("exerciseId");
         Logger log = Logger.getLogger(ClassesController.class.getName());
         log.info("Exercise: " + exerciseId);
+        state = request.getParameter("state");
+
         List<Classes> classesList = classesSessionBean.getClasses(classname);
         List<Exercise> exerciseList = exerciseSessionBean.getExercises
-                (classesList.get(0).getClassId(), exerciseId);
+                (classesList.get(0).getClassId(), Integer.parseInt(exerciseId));
 
         exercise = exerciseList.get(0);
 
-        solutionList = solutionSessionBean.getSolutions(exercise.getClassId(),
+        allSolutions = solutionSessionBean.getSolutions(exercise.getClassId(),
                 exercise.getExerciseId());
+
+        author = username.equals(exercise.getUsername());
+
+        for(Solution aSolutionList : allSolutions)
+            if (aSolutionList.getId_state() == unseenId) {
+                author = false;
+            }
+
+        switch (state){
+            case ALL: solutionList = allSolutions; break;
+            case SolutionState.CORRECT : solutionList = solutionSessionBean
+                    .getSolutionsByState(exercise.getClassId(),exercise.
+                            getExerciseId(), correctId); break;
+            case SolutionState.UNSEEN : solutionList = solutionSessionBean
+                    .getSolutionsByState(exercise.getClassId(),exercise.
+                            getExerciseId(), unseenId); break;
+            case SolutionState.WRONG: solutionList = solutionSessionBean
+                    .getSolutionsByState(exercise.getClassId(),exercise.
+                            getExerciseId(), wrongId);
+        }
     }
 
-    public List<Solution> getSolutionList() {
+    public List<Solution> getSolutionList(){
         return solutionList;
     }
 
-    public String getUsername() {
+    public String getUsername(){
         return username;
+    }
+
+    public String getExerciseId() {
+        return exerciseId;
     }
 
     public Exercise getExercise() {
@@ -74,21 +116,45 @@ public class SolutionController implements Serializable{
         return classname;
     }
 
+    public boolean isAuthor() {
+        return author;
+    }
+
+    public void setAuthor(boolean author) {
+        this.author = author;
+    }
+
+    public String getUnseenState() {
+        return SolutionState.UNSEEN;
+    }
+
+    public String getWrongState() {
+        return SolutionState.WRONG;
+    }
+
+    public String getCorrectState() {
+        return SolutionState.CORRECT;
+    }
+
+    public String getAllState(){
+        return ALL;
+    }
     public String addSolution(String description){
         Solution solution = new Solution();
-        List<SolutionState> solutionStateList = solutionStateSessionBean
-                .getSolutionStates(SolutionState.UNSEEN);
 
         solution.setDescription(description);
         solution.setUsername(username);
         solution.setExerciseId(exercise.getExerciseId());
         solution.setClassId(exercise.getClassId());
-        solution.setSolutionId(solutionList.size() + 1);
-        solution.setId_state(solutionStateList.get(0).getStateId());
+        solution.setSolutionId(allSolutions.size() + 1);
+        solution.setId_state(unseenId);
 
         solutionSessionBean.addSolution(solution);
         return "SubmitSolution.xhtml";
     }
 
+    public String solutionIdToString(Solution solution){
+        return Integer.toString(solution.getSolutionId());
+    }
 }
 

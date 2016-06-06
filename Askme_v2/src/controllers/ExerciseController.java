@@ -3,6 +3,7 @@ package controllers;
 import entities.Classes;
 import entities.Exercise;
 import entities.ExerciseState;
+import entities.SolutionState;
 import sessionBeans.ClassesSessionBean;
 import sessionBeans.ExerciseSessionBean;
 import sessionBeans.ExerciseStateSessionBean;
@@ -78,6 +79,12 @@ public class ExerciseController implements Serializable {
     public String exerciseIdToString(Exercise exercise){
         Logger log = Logger.getLogger(ClassesController.class.getName());
         log.info("Exercise: " + exercise.getExerciseId());
-        return Integer.toString(exercise.getExerciseId());
+        String cenas =Integer.toString(exercise.getExerciseId());
+        log.info("Exercise: string -> " + cenas);
+        return cenas;
+    }
+
+    public String getAllState(){
+        return SolutionController.ALL;
     }
 }
