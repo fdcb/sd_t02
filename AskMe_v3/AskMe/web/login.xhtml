@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns = "http://www.w3.org/1999/xhtml"
+      xmlns:h = "http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <link href = "css/style_askMe_1.css"
+          rel = "stylesheet"
+          type = "text/css"/>
+    <title>AskMe - LogIn </title>
+</h:head>
+<h:body>
+    <div class = "maindiv"
+         style = "">
+        <center>
+            <center><b>Iniciar Sessão</b></center>
+
+            <h:form>
+                <table border = "0">
+                    <thead>
+                    <tr>
+                        Username:&nbsp; <h:inputText
+                            binding = "#{user}"/>
+                        Password:&nbsp; <h:inputSecret
+                            binding = "#{pass}"/>
+                        <th><h:commandButton value = "Iniciar"
+                                             action = "#{userController.logIn
+                                             (user.value)}"/>
+                        </th>
+                        <th><h:commandButton value = "Cancelar"
+                                             action = "welcome"/></th>
+                    </tr>
+                    </thead>
+                </table>
+            </h:form>
+        </center>
+    </div>
+</h:body>
+</html>
+

@@ -1,0 +1,48 @@
+.maindiv{
+    position: absolute;
+    width:300px;
+    height:350px;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin: auto;
+    background-color:  rgba(255, 255, 255, 0.9); /* o ultimo parametro é a opacidade da caixa*/
+    overflow: auto;
+
+    border-radius: 25px;
+    padding:25px;
+}
+
+.maindiv h2 { color: #000; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+
+
+body {
+    width: 50%;
+    height:50%;
+    font-family: 'Open Sans', sans-serif;
+    background: #110956;
+}
+
+input {
+    width: 88%;
+    margin: 10px;
+
+    text-align: center;
+    background: rgba(0,0,0,0.5);
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    border: 1px solid rgba(1,1,1,0.3);
+    border-radius: 4px;
+    box-shadow: inset 0 -5px 45px rgba(150,150,150,0.2), 0 1px 1px rgba(255,255,255,0.2);
+    -webkit-transition: box-shadow .5s ease;
+    -moz-transition: box-shadow .5s ease;
+    -o-transition: box-shadow .5s ease;
+    -ms-transition: box-shadow .5s ease;
+    transition: box-shadow .5s ease;
+}
+input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
