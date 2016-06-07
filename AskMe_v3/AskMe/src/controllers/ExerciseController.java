@@ -63,7 +63,7 @@ public class ExerciseController implements Serializable {
                     break;
                 case ExerciseState.OPEN: exerciseList = exerciseSessionBean
                         .getExercisesByState(classes.getClassId(), openId); break;
-                default: exerciseStateList = allExercises;
+                default: exerciseList = allExercises;
             }
         }
         else
