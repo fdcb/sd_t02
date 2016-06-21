@@ -17,17 +17,19 @@
                 <table border="0">
                     <thead>
                     <tr>
-                        Username: &nbsp; <h:inputText
+                        <b>Username:</b> &nbsp; <h:inputText
                             binding="#{user}"
                     />
-                        Password: &nbsp; <h:inputSecret
+                        <b>Password:</b> &nbsp; <h:inputSecret
                             binding="#{password}"/>
                     </tr>
                     <tr>
-                        <h:commandButton
+                        <h:commandButton style="width: calc((50%)/2)"
                                 value="Guardar"
                                 action="#{userController.addNewUser(user.value)}"/>
-                        <h:commandButton value="Cancelar" action="welcome"/>
+                        <h:commandButton style=" width: calc((50%)/2)"
+                                         value="Cancelar"
+                                         action="welcome"/>
                     </tr>
                     </thead>
                 </table>

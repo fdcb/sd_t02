@@ -1,221 +1,92 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      >
-    <h:head>
-        <link href="css/style_askMe_2.css" rel="stylesheet" type="text/css"/>
-        <title>AskMe</title>
-    </h:head>
-    <h:body>
-
-        <h:form id="form" style="display:none; width: 30%; ">
-
-            <div class="maindiv4" style="" >
-                <h:dataTable value="#{exerciseController.}" var="o"
-                             styleClass="order-table"
-                             headerClass="order-table-header"
-                             rowClasses="order-table-odd-row,order-table-even-row"
-                >
-                    <h:column>
-                        <!-- column header -->
-                        <f:facet name="header">ID</f:facet>
-                        <!-- row record -->
-                        #{o.idExercise}
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">UC</f:facet>
-                        #{o.idClass}
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">Solução:</f:facet>
-                        #{o.description}
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">Estado</f:facet>
-                        #{o.state}
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">Inserido por: </f:facet>
-                        #{o.username}
-                    </h:column>
-                </h:dataTable>
-
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns = "http://www.w3.org/1999/xhtml"
+      xmlns:h = "http://xmlns.jcp.org/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core"
+>
+<h:head>
+    <link href = "css/style_askMe_2.css"
+          rel = "stylesheet"
+          type = "text/css"/>
+    <title>AskMe</title>
+</h:head>
+<h:body>
+    <h:form>
+        <div class = "maindiv2">
+            <div class = "acessos">
+                <center><h2>Utilizador Online</h2></center>
+                <hr class = "noscreen"/>
+                <h3 style = "text-align: center">
+                    #{solutionStateController.username}
+                </h3>
+                <center>
+                    <h:commandButton style = "margin-top: 5px; width: 75px; margin-right: 5px"
+                                     value = "Soluções"
+                                     action="SubmitSolution"/>
+                    <h:commandButton style = "margin-top: 5px; width: 65px"
+                                     value = "LogOut"
+                                     onclick = "alert('A sair do AskMe');"
+                                     action = "#{userController.resetUser}"/>
+                </center>
             </div>
-
-        </h:form>
-
-        <h:form id="form1" style="display:none; width: 30%; margin-right: 20px ">
-
-            <div class="maindiv4" style="" >
-                <h:dataTable value="#{exerciseController.openexercicios}" var="o"
-                             styleClass="order-table"
-                             headerClass="order-table-header"
-                             rowClasses="order-table-odd-row,order-table-even-row"
-                >
-                    <h:column>
-                        <!-- column header -->
-                        <f:facet name="header">ID</f:facet>
-                        <!-- row record -->
-                        #{o.idExercise}
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">UC</f:facet>
-                        #{o.idClass}
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">Solução:</f:facet>
-                        #{o.description}
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">Estado</f:facet>
-                        #{o.state}
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">Inserido por: </f:facet>
-                        #{o.username}
-                    </h:column>
-                </h:dataTable>
-
-
+        </div>
+    </h:form>
+    <center>
+        <div class = "maindiv"
+             style = "">
+            <div class = "header"
+                 style = "">
+                <h1 id = "logo"><a href = "#"
+                                   title = "#">AskMe<span>.com</span>
+                </a></h1>
+                <hr class = "noscreen"/>
             </div>
-
-        </h:form>
-
-        <h:form id="form2" style="display:none; width: 30%; margin-right: 20px ">
-
-            <div class="maindiv4" style="" >
-                <h:dataTable value="#{exerciseController.closedexercicios}" var="o"
-                             styleClass="order-table"
-                             headerClass="order-table-header"
-                             rowClasses="order-table-odd-row,order-table-even-row"
-                >
-                    <h:column>
-                        <!-- column header -->
-                        <f:facet name="header">ID</f:facet>
-                        <!-- row record -->
-                        #{o.idExercise}
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">UC</f:facet>
-                        #{o.idClass}
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">Solução:</f:facet>
-                        #{o.description}
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">Estado</f:facet>
-                        #{o.state}
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">Inserido por: </f:facet>
-                        #{o.username}
-                    </h:column>
-                </h:dataTable>
-
-
-            </div>
-
-        </h:form>
-
-        <h:form id="form3" style="display:none; width: 30%; margin-right: 20px ">
-
-            <div class="maindiv4" style="" >
-
-                <h:dataTable value="#{exerciseController.exercicesidexer}" var="o"
-                             styleClass="order-table"
-                             headerClass="order-table-header"
-                             rowClasses="order-table-odd-row,order-table-even-row"
-                >
-                    <h:column>
-                        <!-- column header -->
-                        <f:facet name="header">ID</f:facet>
-                        <!-- row record -->
-                        #{o.idExercise}
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">UC</f:facet>
-                        #{o.idClass}
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">Solução:</f:facet>
-                        #{o.description}
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">Estado</f:facet>
-                        #{o.state}
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header">Inserido por: </f:facet>
-                        #{o.username}
-                    </h:column>
-                </h:dataTable>
-
-            </div>
-
-        </h:form>
-
-
-        <center>
-            <div class="maindiv" style="">
-                <div class="header" style="">
-                    
-                     <h1 id="logo"><a href="#" title="#">AskMe<span>.com</span></a> </h1>
-                     <hr class="noscreen" />   
-      
-                </div>
-
-
-
-                    <f:view>
-                        <h:form >
-                            <h:commandButton value="Consulta por Unidade Curricular" onclick="toggle('form'); return false;" />
-                            <h:commandButton value="Consulta por Exercício Aberto" onclick="toggle('form1'); return false;" />
-                            <h:commandButton value="Consulta por Exercício Fechado" onclick="toggle('form2'); return false;" />
-                            <h:commandButton value="Consulta por Exercício por UC" onclick="toggle('form3'); return false;" />
-                        </h:form>
-                      
-                      <br></br>
-                      
-
-
-
-
-                   
-                        <script type="text/javascript">
-                            function toggle(id) {
-                              var element = document.getElementById(id);
-                              if(element.style.display == 'block') {
-                                element.style.display = 'none';
-                              } else {
-                                element.style.display = 'block';
-                              }
-                            }
-                      </script>
-                    </f:view>
-            </div>
-        </center>
-            
-     
-    </h:body>
+            <h2>"#{solutionStateController.classname}"</h2>
+            <h:form>
+                <h3> Enunciado do Exercício:</h3>
+                <h:outputText value =
+                                      "#{solutionStateController.exercise.description}"/>
+                <h3>Autor:</h3> <h:outputLabel
+                    value="#{solutionController.exercise.username}"/>
+                <h3> Resposta:</h3>
+                <h:outputText value = "#{solutionStateController.solution.description}"/>
+                <h3>Autor:</h3> <h:outputLabel
+                    value="#{solutionStateController.solution.username}"/>
+                <hr class = "noscreen"/>
+                <h:panelGroup rendered = "#{solutionStateController.author}">
+                        <h:commandButton value = "Correta"
+                                         action = "#{solutionStateController.
+                                                 changeSolutionStateCorrect()}"
+                                         style = "margin-left: 10px;
+                                     margin-top: 5px; width: calc((50%)/2)">
+                            <f:param name = "username"
+                                     value = "#{solutionStateController.username}"/>
+                            <f:param name = "classname"
+                                     value = "#{solutionStateController.classname}"/>
+                            <f:param name = "exerciseId"
+                                     value = "#{solutionStateController.exerciseId}"/>
+                            <f:param name = "solutionId"
+                                     value = "#{solutionStateController.solutionIdS}"/>
+                        </h:commandButton>
+                        <h:commandButton value = "Incorreta"
+                                         action = "#{solutionStateController.
+                                                 changeSolutionStateWrong()}"
+                                         style = "margin-left: 10px;
+                                     margin-top: 5px; width: calc((50%)/2)">
+                            <f:param name = "username"
+                                     value = "#{solutionStateController.username}"/>
+                            <f:param name = "classname"
+                                     value = "#{solutionStateController.classname}"/>
+                            <f:param name = "exerciseId"
+                                     value = "#{solutionStateController.exerciseId}"/>
+                            <f:param name = "solutionId"
+                                     value = "#{solutionStateController.solutionIdS}"/>
+                        </h:commandButton>
+                </h:panelGroup>
+            </h:form>
+        </div>
+    </center>
+</h:body>
 </html>
 

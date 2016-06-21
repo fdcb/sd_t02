@@ -29,6 +29,11 @@ import javax.persistence.*;
                         "WHERE s.classId = :classId " +
                         "AND s.exerciseId = :exerciseId " +
                         "AND s.id_state = :stateId"
+        ),
+        @NamedQuery(
+                name = "Solution.findAllByState",
+                query = "SELECT s FROM Solution s " +
+                        "WHERE s.id_state = :stateId"
         )
 })
 public class Solution {

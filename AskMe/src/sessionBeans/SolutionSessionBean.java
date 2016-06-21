@@ -81,5 +81,27 @@ public class SolutionSessionBean {
         solution.setId_state(state_id);
         entityManager.getTransaction().commit();
     }
+
+    public void deleteSolutions(Solution solutionEntity){
+        EntityManager entityManager = getEntityManagerFactory()
+                .createEntityManager();
+        SolutionPK solutionPK = new SolutionPK(solutionEntity
+                .getSolutionId(), solutionEntity.getExerciseId(),
+                solutionEntity.getClassId());
+        Solution solution = entityManager.find(Solution.class,
+                solutionPK);
+        entityManager.getTransaction().begin();
+        entityManager.remove(solution);
+        entityManager.getTransaction().commit();
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Solution> getSolutionsByState(int stateId){
+        EntityManager entityManager = getEntityManagerFactory()
+                .createEntityManager();
+        return (List<Solution>) entityManager.
+                createNamedQuery("Solution.findAllByState").
+                setParameter("stateId", stateId).getResultList();
+    }
 }
 

@@ -17,11 +17,23 @@ import javax.persistence.*;
                         "WHERE e.classId = :classId " +
                         "AND e.exerciseId = :exerciseId"
         ),
-        @NamedQuery(name = "Exercise.changeState",
+        @NamedQuery(
+                name = "Exercise.changeState",
                 query = "SELECT e FROM Exercise e "+
                         "WHERE e.exerciseId=:exerciseId " +
                         "AND e.classId=:classId"
         ),
+        @NamedQuery(
+                name = "Exercise.findByClassAndState",
+                query = "SELECT e FROM Exercise e " +
+                        "WHERE e.classId = :classId " +
+                        "AND e.id_state = :stateId"
+        ),
+        @NamedQuery(
+                name = "Exercise.findByUser",
+                query = "SELECT e FROM Exercise e " +
+                        "WHERE e.username =:username"
+        )
 })
 public class Exercise {
     private Integer exerciseId;

@@ -13,7 +13,7 @@
 </h:head>
 <h:body>
     <h:form>
-        <div class = "maindiv1">
+        <div class = "maindiv6">
             <div class = "acessos">
                 <center><h2>Informação adicional</h2></center>
                 <hr class = "noscreen"/>
@@ -22,26 +22,29 @@
                     <h:outputLabel
                             value = "#{classesController.getClassesNumber()}"/>
                     <br/>
+                    <h:panelGroup rendered = "#{classesController.unseenExercises}">
+                        <h:outputLabel><h3
+                                style="color: brown">Tem soluções não
+                            classificadas!</h3></h:outputLabel>
+                    </h:panelGroup>
                 </h:panelGrid>
             </div>
         </div>
     </h:form>
     <h:form>
-        <div class = "maindiv3">
+        <div class = "maindiv2">
             <div class = "acessos">
                 <center><h2>Utilizador Online</h2></center>
                 <hr class = "noscreen"/>
-<<<<<<< HEAD
-                <h3 style="text-align: center">
-=======
                 <h3 style = "text-align: center">
->>>>>>> ea7593c58e68e612988c166e7ed1da6566a62f3b
                     #{userController.username}
                 </h3>
-                <h:commandButton style = "margin-top: 5px"
-                                 value = "LogOut"
-                                 onclick = "alert('A sair do AskMe');"
-                                 action = "#{userController.resetUser}"/>
+                <center>
+                    <h:commandButton style = "margin-top: 5px; width: 65px"
+                                     value = "LogOut"
+                                     onclick = "alert('A sair do AskMe ');"
+                                     action = "#{userController.resetUser}"/>
+                </center>
             </div>
         </div>
     </h:form>
@@ -55,8 +58,7 @@
                 </h1>
                 <hr class = "noscreen"/>
             </div>
-            <h:form
-                    rendered = "#{not empty classesController.classList}">
+            <h:form rendered = "#{not empty classesController.classList}">
                 <h:dataTable styleClass = "table-fill"
                              value =
                                      "#{classesController.classList}"
@@ -66,35 +68,45 @@
                         <f:facet name = "header">
                             <h:outputText value = "Unidades Curriculares "/>
                         </f:facet>
-                        <h:commandButton styleClass = "input1"
-                                         value =
-                                                 "#{classesList.name}"
+                        <h:commandButton id = "b1"
+                                         styleClass = "input1"
+                                         value = "#{classesList.name}"
                                          action = "#{classesController.
-                                                goToExerciseList(classesList)}"/>
+                                                goToExerciseList()}">
+                            <f:param name = "classname"
+                                     value = "#{classesList.name}"/>
+                            <f:param name = "username"
+                                     value = "#{userController.username}"/>
+                        </h:commandButton>
                     </h:column>
                 </h:dataTable>
             </h:form>
             <h:panelGroup rendered = "#{empty classesController.classList}">
-                <p>Não existem Unidades Curriculares</p>
+                <p>Não existem Unidade Curriculares</p>
             </h:panelGroup>
             <f:view>
                 <h:form>
-                    <h:commandButton style = "margin-top: 30px"
+                    <h:commandButton style = "margin-top: 30px;
+                            width: calc((100%)/2)"
                                      value =
                                              "Criar Unidade Curricular"
                                      onclick = "toggle('form'); return false;"/>
                 </h:form>
                 <h:form id = "form"
-                        style = "display:none; width: 30%;
-                                margin-right: 150px ">
-                    <p>Name: <h:inputText
-                            value = "#{classesController.classes.name}"/></p>
+                        style = "display:none; width: 50%;
+                                margin-right: 10px ">
+                    <p><b>Nome:</b> <h:inputText style = "margin-left:5px;
+                            width: calc((120%)/2)"
+                                                 binding = "#{name}"/></p>
                     <h:commandButton value = "Guardar"
-                                     style = "width:306px"
-                                     action = "#{classesController.addClasses()}"
+                                     style = "width:210px"
+                                     action =
+                                             "#{classesController.addClasses
+                                             (name.value)}"
                                      onclick = "alert('Unidade Curricular ' +
-                                           '#{classesController.classes.name}' +
-                                           ' criada!');"/>
+                                           '#{name.value}' +
+                                           ' criada!');">
+                    </h:commandButton>
                 </h:form>
                 <script type = "text/javascript">
                     function toggle(id) {
@@ -111,4 +123,3 @@
     </center>
 </h:body>
 </html>
-

@@ -24,6 +24,10 @@ public class SolutionState {
     private Integer stateId;
     private String state;
 
+    public static final String UNSEEN = "unseen";
+    public static final String WRONG = "wrong";
+    public static final String CORRECT = "correct";
+
     @Id
     @Column(name = "state_id")
     public Integer getStateId() {
