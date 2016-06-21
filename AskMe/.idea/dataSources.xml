@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="DataSourceManagerImpl" format="xml" hash="2037895220">
     <data-source source="LOCAL" name="Sqlite (Xerial) - AskMe.db" uuid="fe108c89-d188-4bf6-80e4-745582ec19e2">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/../../AskMe.db</jdbc-url>
+=======
+  <component name="DataSourceManagerImpl" format="xml" hash="1249172376">
+    <data-source source="LOCAL" name="Sqlite (Xerial) - AskMe.db" uuid="cc1529e6-baa3-48ed-b5d0-5ee08e7852bb">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/../AskMe.db</jdbc-url>
+>>>>>>> 96e3b105d3d46d2308844798615aebaac5b4b81e
     </data-source>
   </component>
 </project>

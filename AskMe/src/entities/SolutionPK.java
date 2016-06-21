@@ -4,6 +4,12 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import java.io.Serializable;
 
+<<<<<<< HEAD
+=======
+/**
+ * Created by Filipa on 5/27/2016.
+ */
+>>>>>>> 96e3b105d3d46d2308844798615aebaac5b4b81e
 public class SolutionPK implements Serializable {
     private Integer solutionId;
     private int exerciseId;

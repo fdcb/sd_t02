@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns = "http://www.w3.org/1999/xhtml"
+      xmlns:h = "http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <link href = "css/style_askMe_2.css"
+          rel = "stylesheet"
+          type = "text/css"/>
+    <title>AskMe - Admininstrador</title>
+</h:head>
+<h:body>
+    <h:form>
+        <div class = "maindiv4">
+            <div class = "acessos">
+                <p><b>Nº de Acessos:</b></p>
+                <center>#{userController.accessNumber}</center>
+            </div>
+            <hr class = "noscreen"/>
+            <center><h:commandButton style = "margin-top: 5px;
+                        width: calc((60%)/2)"
+                                     value = "LogOut"
+                                     action = "welcome"/>
+            </center>
+        </div>
+    </h:form>
+    <div class = "maindiv">
+        <h:form>
+            <center>
+                <table border = "0">
+                    <thead>
+                    <tr>
+                        <th>
+                            <img src = "ole.png"
+                                 width = "125"
+                                 height = "125"
+                                 alt = "AskMe Logo"/>
+                        </th>
+                        <th>
+                            <h2>Painel de Administração</h2>
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
+            </center>
+            <hr class = "noscreen"/>
+            <center>
+                <h:commandButton style = "width:300px; margin-top: 35px"
+                                 value = "Eliminar todas as soluções erradas"
+                                 action="#{userController.
+                                         deleteWrongSolutions()
+                                         }"
+                                 onclick = "alert ('Todas as soluções erradas' +
+                                  ' foram apagadas.');"/>
+            </center>
+        </h:form>
+    </div>
+</h:body>
+</html>
+

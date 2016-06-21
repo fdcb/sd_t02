@@ -36,6 +36,7 @@ public class ExerciseSessionBean {
                 setParameter("exerciseId", exerciseId).getResultList();
     }
 
+<<<<<<< HEAD
     @SuppressWarnings("unchecked")
     public List<Exercise> getExercisesByState(int classId, int stateId){
         EntityManager entityManager = getEntityManagerFactory()
@@ -46,6 +47,8 @@ public class ExerciseSessionBean {
                 setParameter("stateId", stateId).getResultList();
     }
 
+=======
+>>>>>>> 96e3b105d3d46d2308844798615aebaac5b4b81e
     public void addExercise(Exercise exerciseEntity){
         EntityManager entityManager = getEntityManagerFactory()
                 .createEntityManager();
@@ -66,6 +69,7 @@ public class ExerciseSessionBean {
         exercise.setId_state(state_id);
         entityManager.getTransaction().commit();
     }
+<<<<<<< HEAD
 
     @SuppressWarnings("unchecked")
     public List<Exercise> getExercisesByUser(String username){
@@ -75,5 +79,7 @@ public class ExerciseSessionBean {
                 createNamedQuery("Exercise.findByUser").
                 setParameter("username", username).getResultList();
     }
+=======
+>>>>>>> 96e3b105d3d46d2308844798615aebaac5b4b81e
 }
 

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
+<<<<<<< HEAD
   <data-source name="Sqlite (Xerial) - AskMe.db" uuid="fe108c89-d188-4bf6-80e4-745582ec19e2">
+=======
+  <data-source name="Sqlite (Xerial) - AskMe.db" uuid="cc1529e6-baa3-48ed-b5d0-5ee08e7852bb">
+>>>>>>> 96e3b105d3d46d2308844798615aebaac5b4b81e
     <database-info product="SQLite" version="3.8.9" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
     <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
     <schema name="" catalog=""/>

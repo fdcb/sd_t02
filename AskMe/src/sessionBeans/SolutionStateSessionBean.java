@@ -11,7 +11,13 @@ import java.util.List;
 @Stateless(name = "SolutionStateSessionEJB")
 public class SolutionStateSessionBean {
 
+<<<<<<< HEAD
 
+=======
+    public static final String WRONG = "wrong";
+    public static final String UNSEEN = "unseen";
+    public static final String CORRECT = "correct";
+>>>>>>> 96e3b105d3d46d2308844798615aebaac5b4b81e
 
     private EntityManagerFactory entityManagerFactory = Persistence
             .createEntityManagerFactory("newpersistenceunit");

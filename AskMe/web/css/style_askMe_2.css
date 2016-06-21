@@ -1,7 +1,11 @@
 .maindiv{
     position: absolute;
     width:calc((50%)/2);
+<<<<<<< HEAD
     height:calc((130%)/2);
+=======
+    height:calc((120%)/2);
+>>>>>>> 96e3b105d3d46d2308844798615aebaac5b4b81e
     left:0;
     right:0;
     top:0;
@@ -19,8 +23,13 @@
 
 .maindiv1{
     position: absolute;
+<<<<<<< HEAD
     width:calc((25%)/2);
     height:calc((85%)/2);
+=======
+    width:200px;
+    height:210px;
+>>>>>>> 96e3b105d3d46d2308844798615aebaac5b4b81e
     right:0;
     top:0;
     margin-right: 20px;
@@ -37,12 +46,21 @@
 
 .maindiv2{
     position: absolute;
+<<<<<<< HEAD
     width:calc((25%)/2);
     height:calc((50%)/2);
     right:0;
 
     margin-right: 20px;
     margin-top: 310px;
+=======
+    width:20%;
+    height:21%;
+    right:0;
+    left:0;
+    bottom: 0;
+    margin-top: 200px;
+>>>>>>> 96e3b105d3d46d2308844798615aebaac5b4b81e
     background-color:  rgba(255, 255, 255, 0.9); /* o ultimo parametro é a opacidade da caixa */
     overflow: auto;
 
@@ -59,7 +77,11 @@
     right:0;
 
     margin-right: 20px;
+<<<<<<< HEAD
     margin-top: 440px;
+=======
+    margin-top: 300px;
+>>>>>>> 96e3b105d3d46d2308844798615aebaac5b4b81e
     background-color:  rgba(255, 255, 255, 0.9); /* o ultimo parametro é a opacidade da caixa */
     overflow: auto;
 
@@ -71,6 +93,7 @@
 
 .maindiv4{
     position: absolute;
+<<<<<<< HEAD
     width:calc((25%)/2);
     height:calc((50%)/2);
     right:0;
@@ -94,6 +117,12 @@
     top:0;
     margin-right: 20px;
     margin-top: 20px;
+=======
+    width:30%;
+    height:40%;
+
+
+>>>>>>> 96e3b105d3d46d2308844798615aebaac5b4b81e
     background-color:  rgba(255, 255, 255, 0.9); /* o ultimo parametro é a opacidade da caixa */
     overflow: auto;
 
@@ -101,6 +130,7 @@
     padding:25px;
 }
 
+<<<<<<< HEAD
 .maindiv5 h2 { color: #000; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
 
 .maindiv6{
@@ -119,6 +149,10 @@
 }
 
 .maindiv6 h2 { color: #000; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+=======
+.maindiv4 h2 { color: #000; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+
+>>>>>>> 96e3b105d3d46d2308844798615aebaac5b4b81e
 
 
 body {
@@ -138,7 +172,11 @@ body {
     text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
     border: 0px solid rgba(255,255,255,0.9);
 
+<<<<<<< HEAD
     box-shadow: inset 0 -5px 45px rgba(150,150,150,0.3), 0 1px 1px rgba(255,255,255,0.2);
+=======
+    box-shadow: inset 0 -5px 45px rgba(150,150,150,0.2), 0 1px 1px rgba(255,255,255,0.2);
+>>>>>>> 96e3b105d3d46d2308844798615aebaac5b4b81e
     -webkit-transition: box-shadow .5s ease;
     -moz-transition: box-shadow .5s ease;
     -o-transition: box-shadow .5s ease;
@@ -150,7 +188,11 @@ body {
 
 input {
     width: 100%;
+<<<<<<< HEAD
     background: rgba(0,0,0,0.2);
+=======
+    background: rgba(0,0,0,0.5);
+>>>>>>> 96e3b105d3d46d2308844798615aebaac5b4b81e
 
     outline: none;
     padding: 10px;
@@ -323,3 +365,7 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 .table-fill td.text-right {
     text-align: right;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 96e3b105d3d46d2308844798615aebaac5b4b81e

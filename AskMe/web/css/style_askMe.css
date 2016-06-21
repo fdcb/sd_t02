@@ -26,7 +26,11 @@ body {
 input {
     width: 100%;
     margin-bottom: 10px;
+<<<<<<< HEAD
     background: rgba(0,0,0,0.2);
+=======
+    background: rgba(0,0,0,0.5);
+>>>>>>> 96e3b105d3d46d2308844798615aebaac5b4b81e
     border: none;
     outline: none;
     padding: 10px;

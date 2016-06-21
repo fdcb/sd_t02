@@ -1,5 +1,6 @@
 package controllers;
 
+<<<<<<< HEAD
 import entities.Classes;
 import entities.Exercise;
 import entities.Solution;
@@ -126,5 +127,28 @@ public class SolutionStateController implements Serializable{
         solutionSessionBean.changeSolutionState(solution, solutionStateList
                 .get(0).getStateId());
         return "consult.xhtml";
+=======
+import entities.SolutionState;
+import sessionBeans.SolutionStateSessionBean;
+
+import javax.ejb.EJB;
+import javax.faces.bean.RequestScoped;
+import javax.inject.Named;
+import java.util.ArrayList;
+import java.util.List;
+
+@Named (value="solutionStateController")
+@RequestScoped
+public class SolutionStateController {
+    @EJB
+    SolutionStateSessionBean solutionStateSessionBean;
+
+    public List<SolutionState> getSolutionStateList() {
+        return solutionStateSessionBean.getSolutionStates();
+    }
+
+    public List<SolutionState> getSolutionStateList(int stateId) {
+        return solutionStateSessionBean.getSolutionStates(stateId);
+>>>>>>> 96e3b105d3d46d2308844798615aebaac5b4b81e
     }
 }

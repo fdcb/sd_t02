@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <link href="css/style_askMe_2.css" rel="stylesheet" type="text/css"/>
+        <title>AskMe - Admininstrador</title>
+    </h:head>
+    <h:body> 
+        <h:form>
+         <div class="maindiv1">
+                <div class="acessos">
+                    <p>Nº de Acessos</p>#{userController.numberAcess }
+                </div>
+                <h:commandButton value="LogOut" action="welcome"/>
+            </div>
+        </h:form>
+        <div class="maindiv">
+        <h:form>
+            <center>
+                <table border="0">
+                    <thead>
+                        <tr>
+                            <th>
+                                <img src="ole.png" width="125" height="125" alt="AskMe Logo"/>
+                            </th>
+                            <th>
+                                    <h2>Painel de Administração</h2>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </center>
+            <hr class="noscreen" />
+            <center>
+                <h:commandButton style="width:300px; margin-top: 35px" value="Eliminar todas as soluções erradas" action="#{solutionController.deleteWrong()}" onclick="alert ('Todas as soluções erradas foram apagadas.');" />
+            </center>
+
+        </h:form> 
+            
+           <!-- <h:button style="width:300px;" value="Eliminar soluções erradas" onclick="toggle('form'); return false;" />-->
+            <br/>
+           
+             <h:form id="form" class=" maindiv2" style="display:none; width: 300px; margin:auto;">
+                <h:panelGrid columns="2" >
+                    <h:outputLabel value="Número: "/>
+                    <h:inputText value="#{unidadeController.numero}"/>
+                    <h:outputLabel value="Nome: "/>
+                    <h:inputText value="#{unidadeController.nome}"/>
+                </h:panelGrid>
+                <h:commandButton value="Criar UC" action="#{unidadeController.addUnidade()}"/>
+            
+            </h:form>
+            
+        
+        </div>
+        <script type="text/javascript">
+          function toggle(id) {
+            var element = document.getElementById(id);
+            if(element.style.display == 'block') {
+              element.style.display = 'none';
+            } else {
+              element.style.display = 'block'
+            }
+          }
+    </script>
+    </h:body>
+</html>
+

@@ -81,6 +81,7 @@ public class SolutionSessionBean {
         solution.setId_state(state_id);
         entityManager.getTransaction().commit();
     }
+<<<<<<< HEAD
 
     public void deleteSolutions(Solution solutionEntity){
         EntityManager entityManager = getEntityManagerFactory()
@@ -103,5 +104,7 @@ public class SolutionSessionBean {
                 createNamedQuery("Solution.findAllByState").
                 setParameter("stateId", stateId).getResultList();
     }
+=======
+>>>>>>> 96e3b105d3d46d2308844798615aebaac5b4b81e
 }
 
